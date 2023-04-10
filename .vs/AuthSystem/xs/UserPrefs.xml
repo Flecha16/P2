@@ -1,0 +1,53 @@
+﻿<Properties StartupConfiguration="{3EC7B0BC-6469-4E33-86F8-03A2DDAFC6C1}|https">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.AuthSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Shared/_Layout.cshtml">
+    <Files>
+      <File FileName="Views/AppRoles/Edit.cshtml" />
+      <File FileName="Views/Users/Edit.cshtml" />
+      <File FileName="Views/Shared/_Layout.cshtml" Line="34" Column="43" />
+      <File FileName="Controllers/UsersController.cs" />
+      <File FileName="Controllers/AppRolesController.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="AuthSystem" expanded="True">
+            <Node name="AuthSystem" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Migrations" expanded="True">
+                <Node name="Areas" expanded="True">
+                  <Node name="Identity" expanded="True">
+                    <Node name="Data" expanded="True" />
+                    <Node name="Pages" expanded="True">
+                      <Node name="Account" expanded="True">
+                        <Node name="ConfirmEmail.cshtml" expanded="True" />
+                        <Node name="Register.cshtml" expanded="True" />
+                      </Node>
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+              <Node name="Views" expanded="True">
+                <Node name="AppRoles" expanded="True" />
+                <Node name="Home" expanded="True" />
+                <Node name="Shared" expanded="True">
+                  <Node name="_Layout.cshtml" expanded="True" selected="True" />
+                </Node>
+                <Node name="Users" expanded="True" />
+              </Node>
+              <Node name="wwwroot" expanded="True">
+                <Node name="css" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+</Properties>

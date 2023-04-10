@@ -1,0 +1,51 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<AuthSystem.Areas.Identity.Data.ApplicationUser>
+@inject UserManager<AuthSystem.Areas.Identity.Data.ApplicationUser> userManager
+@inject RoleManager<IdentityRole> roleManager
+
+@{
+    ViewData["Title"] = "Users List";
+}
+
+<title>@ViewData["Title"] - Frish Alimentos Congelados</title>
+<h1 class="mb-4 text-center">Users List</h1>
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead style="background-color: #008c90; color: #fff;">
+            <tr>
+                <th class="text-center" style="width: auto%;">ID</th>
+                <th class="text-center" style="width: auto%;">First Name</th>
+                <th class="text-center" style="width: auto%;">Last Name</th>
+                <th class="text-center" style="width: auto%;">Email</th>
+                <th class="text-center" style="width: auto%;">User Role</th>
+                <th class="text-center" style="width: auto%;">Update</th>
+                <th class="text-center" style="width: auto%;">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td class="text-center">@Html.DisplayFor(modelItem => user.Id)</td>
+                    <td class="text-center">@Html.DisplayFor(modelItem => user.FirstName)</td>
+                    <td class="text-center">@Html.DisplayFor(modelItem => user.LastName)</td>
+                    <td class="text-center">@Html.DisplayFor(modelItem => user.Email)</td>
+                    <td class="text-center">
+                        @{
+                            var roles = userManager.GetRolesAsync(user).Result;
+                        }
+                        @foreach (var roleName in roles)
+                        {
+                            <span>@roleName</span>
+                        }
+                    </td>
+                    <td class="text-center"><a asp-action="Edit" asp-route-id="@user.Id" class="btn btn-sm btn-primary">Edit</a></td>
+                    <td class="text-center"><a asp-action="Delete" asp-route-id="@user.Id" class="btn btn-sm btn-danger">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="d-flex justify-content-center mt-2">
+    <a asp-action="Create" class="btn btn-primary">Create User</a>
+</div>
