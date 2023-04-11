@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace AuthSystem.Controllers
 {
@@ -16,13 +17,15 @@ namespace AuthSystem.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly ILogger<UsersController> _logger;
-        
+        private readonly IUserStore<ApplicationUser> _userStore;
 
-        public UsersController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, ILogger<UsersController> logger)
+
+        public UsersController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, ILogger<UsersController> logger, IUserStore<ApplicationUser> userStore)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _logger = logger;
+            _userStore = userStore;
         }
 
         // GET: /Users/Index
@@ -45,6 +48,8 @@ namespace AuthSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                
+                await _userStore.SetUserNameAsync(user, user.Email, CancellationToken.None);
                 // Crea el usuario
                 var result = await _userManager.CreateAsync(user, user.PasswordHash);
                 if (result.Succeeded)
