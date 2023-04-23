@@ -25,5 +25,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Users\" />
+    <Folder Include="wwwroot\Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\Images\74282.png" />
+    <Content Remove="wwwroot\Images\Frankfurt-1280x781.jpg" />
+    <Content Remove="wwwroot\Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\Images\74282.png" />
+    <None Include="wwwroot\Images\Frankfurt-1280x781.jpg" />
   </ItemGroup>
 </Project>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0qBSYFw6dccaBWdXfWbGvUyWL3Q5aquK4omGK07mFdNqaRShXe6LfPRtNjSb3f1SXpS0KlQ24vP7VgnVAAYE8w==",
+  "dgSpecHash": "/sL835FdW0jVRd5pOpmmR9toIiQv0OZ8TC4kzGohM5tzymXg/IPHgu3gi3fltmggJIxIsL+QaEmhyII0HdWVTA==",
   "success": true,
-  "projectFilePath": "/Users/flecha/Desktop/AuthSystem/AuthSystem.csproj",
+  "projectFilePath": "/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/AuthSystem.csproj",
   "expectedPackageFiles": [
     "/Users/flecha/.nuget/packages/azure.core/1.24.0/azure.core.1.24.0.nupkg.sha512",
     "/Users/flecha/.nuget/packages/azure.identity/1.6.0/azure.identity.1.6.0.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/flecha/Desktop/AuthSystem/AuthSystem.csproj": {}
+    "/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/AuthSystem.csproj": {}
   },
   "projects": {
-    "/Users/flecha/Desktop/AuthSystem/AuthSystem.csproj": {
+    "/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/AuthSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/flecha/Desktop/AuthSystem/AuthSystem.csproj",
+        "projectUniqueName": "/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/AuthSystem.csproj",
         "projectName": "AuthSystem",
-        "projectPath": "/Users/flecha/Desktop/AuthSystem/AuthSystem.csproj",
+        "projectPath": "/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/AuthSystem.csproj",
         "packagesPath": "/Users/flecha/.nuget/packages/",
-        "outputPath": "/Users/flecha/Desktop/AuthSystem/obj/",
+        "outputPath": "/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/flecha/.nuget/NuGet/NuGet.Config"

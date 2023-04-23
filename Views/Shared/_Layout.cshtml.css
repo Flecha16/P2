@@ -48,3 +48,10 @@ button.accept-policy {
     line-height: 60px;
 }
 
+body {
+    margin-bottom: 60px;
+    font-family: Roboto,sans-serif;
+    background-image: url('/Images/74282.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
