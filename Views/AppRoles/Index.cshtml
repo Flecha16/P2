@@ -5,13 +5,13 @@
     ViewData["Title"] = "Roles";
 }
 
-<title>@ViewData["Title"] - Frish Alimentos Congelados</title>
+<title>@ViewData["Title"] - Sports Analytics</title>
 
-<h1 class="mb-4 text-center">Roles List</h1>
+<h1 class="mb-4 text-center" style="color: white; font-weight: bold"> @ViewData["Title"]</h1>
 
 <div class="table-responsive">
     <table class="table table-striped table-bordered">
-        <thead style="background-color: #008c90; color: #fff;">
+        <thead style="background-color: #108CC6; color: #fff;">
             <tr>
                 <th class="text-center" style="width: 30%;">ID</th>
                 <th class="text-center" style="width: 25%;">Name</th>
@@ -19,7 +19,7 @@
                 <th class="text-center" style="width: 22.5%;">Delete</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody style="background-color: white;">
             @foreach (var item in Model)
             {
                 <tr>

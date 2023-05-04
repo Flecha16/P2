@@ -7,11 +7,13 @@
     ViewData["Title"] = "Users List";
 }
 
-<title>@ViewData["Title"] - Frish Alimentos Congelados</title>
-<h1 class="mb-4 text-center">Users List</h1>
+<title>@ViewData["Title"] - Sports Analytics</title>
+
+<h1 class="mb-4 text-center" style="color: white; font-weight: bold"> @ViewData["Title"]</h1>
+
 <div class="table-responsive">
     <table class="table table-striped table-bordered">
-        <thead style="background-color: #008c90; color: #fff;">
+        <thead style="background-color: #108CC6; color: #fff;">
             <tr>
                 <th class="text-center" style="width: auto%;">ID</th>
                 <th class="text-center" style="width: auto%;">First Name</th>
@@ -22,7 +24,7 @@
                 <th class="text-center" style="width: auto%;">Delete</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody style="background-color: white;">
             @foreach (var user in Model)
             {
                 <tr>

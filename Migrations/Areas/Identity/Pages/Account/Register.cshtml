@@ -4,6 +4,9 @@
     ViewData["Title"] = "Register";
     Layout = "~/Migrations/Areas/Identity/Pages/_AuthLayout.cshtml";
 }
+
+<title>@ViewData["Title"] - Sports Analytics</title>
+
 <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
     <h2>Create a new account.</h2>
     <hr />
