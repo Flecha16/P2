@@ -16,6 +16,34 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/Migrations/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = TWlncmF0aW9ucy9BcmVhcy9JZGVudGl0eS9QYWdlcy9BY2NvdW50L0NvbmZpcm1FbWFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/Migrations/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = TWlncmF0aW9ucy9BcmVhcy9JZGVudGl0eS9QYWdlcy9BY2NvdW50L0ZvcmdvdFBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/Migrations/Areas/Identity/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = TWlncmF0aW9ucy9BcmVhcy9JZGVudGl0eS9QYWdlcy9BY2NvdW50L0xvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/Migrations/Areas/Identity/Pages/Account/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = TWlncmF0aW9ucy9BcmVhcy9JZGVudGl0eS9QYWdlcy9BY2NvdW50L0xvZ291dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/Migrations/Areas/Identity/Pages/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = TWlncmF0aW9ucy9BcmVhcy9JZGVudGl0eS9QYWdlcy9BY2NvdW50L1JlZ2lzdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/Migrations/Areas/Identity/Pages/Account/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = TWlncmF0aW9ucy9BcmVhcy9JZGVudGl0eS9QYWdlcy9BY2NvdW50L1Jlc2V0UGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/Migrations/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = TWlncmF0aW9ucy9BcmVhcy9JZGVudGl0eS9QYWdlcy9BY2NvdW50L19WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/Migrations/Areas/Identity/Pages/_AuthLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = TWlncmF0aW9ucy9BcmVhcy9JZGVudGl0eS9QYWdlcy9fQXV0aExheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -54,10 +82,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/Views/Account/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9SZXNldFBhc3N3b3JkLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/Views/Account/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9fVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/Views/AppRoles/Create.cshtml]
