@@ -1,0 +1,55 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model AuthSystem.Models.Team
+
+@{
+    ViewData["Title"] = "Delete Team";
+}
+
+<title>@ViewData["Title"] - Sports Analytics</title>
+
+<h1 class="mb-4 text-center" style="color: white; font-weight: bold">@ViewData["Title"]</h1>
+
+<div class="row justify-content-center mt-3">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-body" style="background-color: #108CC6;">
+                <form method="post" asp-route-id="@Model.Id" method="post" class="card p-4" style="background-color: #108CC6; color: #fff;">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Id" class="form-label fw-bold text-white">ID</label>
+                        <input asp-for="Id" class="form-control" readonly />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="Name" class="form-label fw-bold text-white">Team Name</label>
+                        <input asp-for="Name" class="form-control" aria-required="true" readonly />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="Stadium" class="form-label fw-bold text-white">Stadium</label>
+                        <input asp-for="Stadium" class="form-control" aria-required="true" readonly />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="City" class="form-label fw-bold text-white">City</label>
+                        <input asp-for="City" class="form-control" aria-required="true" readonly />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="LeagueId" class="form-label fw-bold text-white">League Name</label>
+                        <input asp-for="League.Name" class="form-control" aria-required="true" readonly />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="Country" class="form-label fw-bold text-white">Country</label>
+                        <input asp-for="Country" class="form-control" readonly />
+                    </div>
+                    <div class="d-flex justify-content-center mt-2">
+                        <button type="submit" class="btn btn-danger btn-lg me-4">Delete</button>
+                        <a asp-action="Index" class="btn btn-secondary btn-lg">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -8,12 +8,14 @@ namespace AuthSystem.Data;
 
 public class AuthDbContext : IdentityDbContext<ApplicationUser>
 {
-    public AuthDbContext(DbContextOptions<AuthDbContext> options)
-        : base(options)
+    public AuthDbContext(DbContextOptions<AuthDbContext> options) : base(options)
     {
     }
 
-    //public DbSet<ApplicationUsers> ApplicationUsers { get; set; }
+
+    public DbSet<League> Leagues { get; set; }
+    public DbSet<Team> Teams { get; set; }
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
@@ -21,6 +23,5 @@ public class AuthDbContext : IdentityDbContext<ApplicationUser>
         // For example, you can rename the ASP.NET Identity table names and more.
         // Add your customizations after calling base.OnModelCreating(builder);
     }
-
 
 }
