@@ -34,15 +34,9 @@ namespace AuthSystem.Models
         {
         }
 
-        public Team(int Id, String Name, int LeagueId, League League, String Stadium, String City)
+        public Team(League League)
         {
-            this.Id = Id;
-            this.Name = Name;
-            this.LeagueId = LeagueId;
             this.League = League;
-            this.Stadium = Stadium;
-            this.City = City;
-            // Inicializar la propiedad Country con el país correspondiente a la liga seleccionada
             this.Country = League.Country;
         }
     }

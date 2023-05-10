@@ -61,15 +61,14 @@ namespace AuthSystem.Controllers
                 return NotFound();
             }
 
-            // Buscar el equipo por id
             var team = await _context.Teams.FindAsync(id);
             if (team == null)
             {
                 return NotFound();
             }
 
-            // Load list of leagues into ViewBag.LeagueId
-            ViewBag.LeagueId = new SelectList(_context.Leagues, "Id", "Name", team.LeagueId);
+            var league = await _context.Leagues.FindAsync(team.LeagueId);
+            ViewData["LeagueName"] = league.Name;
 
             return View(team);
         }
@@ -77,41 +76,45 @@ namespace AuthSystem.Controllers
         // POST: Team/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int idBefore, int idAfter, String Name, String Stadium, String City, int LeagueId)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Stadium,City")] Team team)
         {
-            if (idBefore != idAfter)
+            if (id != team.Id)
             {
                 return NotFound();
             }
 
-            League league = await _context.Leagues.FindAsync(LeagueId);
-
-            Team team = new Team(idAfter, Name, LeagueId, league, Stadium, City);
-
-            if (ModelState.IsValid)
+            try
             {
-                try
+                var teamToUpdate = await _context.Teams.FindAsync(id);
+
+                if (teamToUpdate == null)
                 {
-                    _context.Teams.Update(team);
-                    await _context.SaveChangesAsync();
+                    return NotFound();
                 }
-                catch (DbUpdateConcurrencyException)
+
+                // Actualizar solo los campos modificables
+                teamToUpdate.Name = team.Name;
+                teamToUpdate.Stadium = team.Stadium;
+                teamToUpdate.City = team.City;
+
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!TeamExists(team.Id))
                 {
-                    if (!TeamExists(team.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    return NotFound();
                 }
-                return RedirectToAction(nameof(Index));
+                else
+                {
+                    throw;
+                }
             }
 
-            ViewData["LeagueId"] = new SelectList(_context.Leagues, "Id", "Name", team.LeagueId);
-            return View(team);
+            return RedirectToAction(nameof(Index));
+
         }
+
 
         // GET: Team/Delete/5
         public async Task<IActionResult> Delete(int? id)

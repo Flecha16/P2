@@ -1,16 +1,17 @@
 ﻿<Properties StartupConfiguration="{3EC7B0BC-6469-4E33-86F8-03A2DDAFC6C1}|https">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.AuthSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/TeamsController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/League/Index.cshtml">
     <Files>
-      <File FileName="Views/Team/Edit.cshtml" Line="20" Column="52" />
-      <File FileName="Controllers/TeamsController.cs" Line="92" Column="14" />
-      <File FileName="Models/Team.cs" Line="35" Column="1" />
-      <File FileName="Program.cs" Line="45" Column="1" />
+      <File FileName="Views/Team/Index.cshtml" Line="78" Column="11" />
+      <File FileName="Views/League/Create.cshtml" Line="29" Column="81" />
+      <File FileName="Views/League/Index.cshtml" Line="67" Column="2" />
+      <File FileName="Views/AppRoles/Index.cshtml" Line="11" Column="1" />
+      <File FileName="Views/Users/Index.cshtml" Line="14" Column="1" />
+      <File FileName="Views/Shared/_Layout.cshtml" Line="50" Column="126" />
+      <File FileName="Controllers/UsersController.cs" Line="14" Column="5" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,9 +19,7 @@
           <Node name="AuthSystem" expanded="True">
             <Node name="AuthSystem" expanded="True">
               <Node name="Dependencies" expanded="True" />
-              <Node name="Controllers" expanded="True">
-                <Node name="TeamsController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="Migrations" expanded="True">
                 <Node name="Areas" expanded="True">
                   <Node name="Identity" expanded="True">
@@ -32,8 +31,14 @@
               <Node name="Views" expanded="True">
                 <Node name="Account" expanded="True" />
                 <Node name="AppRoles" expanded="True" />
-                <Node name="League" expanded="True" />
+                <Node name="League" expanded="True">
+                  <Node name="Index.cshtml" selected="True" />
+                </Node>
+                <Node name="Shared" expanded="True">
+                  <Node name="_Layout.cshtml" expanded="True" />
+                </Node>
                 <Node name="Team" expanded="True" />
+                <Node name="Users" expanded="True" />
               </Node>
               <Node name="appsettings.json" expanded="True" />
             </Node>
@@ -42,5 +47,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>
