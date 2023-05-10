@@ -5,6 +5,30 @@
       "PackagePath": "staticwebassets/AuthSystem.bundle.scp.css"
     },
     {
+      "Id": "/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/wwwroot/.DS_Store",
+      "PackagePath": "staticwebassets/.DS_Store"
+    },
+    {
+      "Id": "/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/wwwroot/Images/.DS_Store",
+      "PackagePath": "staticwebassets/Images/.DS_Store"
+    },
+    {
+      "Id": "/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/wwwroot/Images/Leagues.jpeg",
+      "PackagePath": "staticwebassets/Images/Leagues.jpeg"
+    },
+    {
+      "Id": "/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/wwwroot/Images/Players.jpeg",
+      "PackagePath": "staticwebassets/Images/Players.jpeg"
+    },
+    {
+      "Id": "/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/wwwroot/Images/Stats.png",
+      "PackagePath": "staticwebassets/Images/Stats.png"
+    },
+    {
+      "Id": "/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/wwwroot/Images/Teams.jpeg",
+      "PackagePath": "staticwebassets/Images/Teams.jpeg"
+    },
+    {
       "Id": "/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },

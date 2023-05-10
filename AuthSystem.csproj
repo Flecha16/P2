@@ -23,11 +23,13 @@
   <ItemGroup>
     <None Remove="Views\Users\" />
     <None Remove="Views\Account\" />
+    <None Remove="Views\Team %28copy%29\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Users\" />
     <Folder Include="wwwroot\Images\" />
     <Folder Include="Views\Account\" />
+    <Folder Include="Views\Player\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\Images\74282.png" />

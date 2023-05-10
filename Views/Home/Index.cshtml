@@ -2,4 +2,49 @@
     ViewData["Title"] = "Home Page";
 }
 
+<style>
+    .carousel-item-name {
+        text-align: center;
+        font-weight: bold;
+        margin-top: 1rem;
+        color: white;
+    }
+</style>
+
 <h1 class="mb-4 text-center" style="color: white; font-weight: bold"> @ViewData["Title"]</h1>
+
+<div id="carouselExampleIndicators" class="carousel slide mt-5" data-bs-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <a href="/Team">
+                <img src="/Images/Teams.jpeg" class="d-block mx-auto" style="width: 700px; height: 400px;" alt="Teams">
+            </a>
+            <div class="carousel-item-name">Teams</div>
+        </div>
+        <div class="carousel-item">
+            <a href="/Player">
+                <img src="/Images/Players.jpeg" class="d-block mx-auto" style="width: 700px; height: 400px; " alt="Players">
+            </a>
+            <div class="carousel-item-name">Players</div>
+        </div>
+        <div class="carousel-item">
+            <a href="/League">
+                <img src="/Images/Stats.png" class="d-block mx-auto" style="width: 700px; height: 400px; " alt="Leagues">
+            </a>
+            <div class="carousel-item-name">Statistics</div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </a>
+</div>
