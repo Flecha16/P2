@@ -1,16 +1,16 @@
 ﻿<Properties StartupConfiguration="{3EC7B0BC-6469-4E33-86F8-03A2DDAFC6C1}|https">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/PlayersController.cs">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Properties/PublishProfiles/FolderProfile.pubxml">
     <Files>
-      <File FileName="Views/Player/Create.cshtml" Line="30" Column="21" />
-      <File FileName="Views/AppRoles/Edit.cshtml" Line="1" Column="1" />
-      <File FileName="Views/AppRoles/Index.cshtml" Line="5" Column="36" />
-      <File FileName="Models/Player.cs" Line="86" Column="2" />
-      <File FileName="Controllers/PlayersController.cs" Line="9" Column="6" />
+      <File FileName="Views/Player/Create.cshtml" />
+      <File FileName="Views/AppRoles/Edit.cshtml" />
+      <File FileName="Views/AppRoles/Index.cshtml" />
+      <File FileName="Models/Player.cs" />
+      <File FileName="Controllers/PlayersController.cs" Line="22" Column="23" />
+      <File FileName="Properties/PublishProfiles/FolderProfile.pubxml" Line="17" Column="11" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,10 +18,12 @@
           <Node name="AuthSystem" expanded="True">
             <Node name="AuthSystem" expanded="True">
               <Node name="Dependencies" expanded="True" />
-              <Node name="Controllers" expanded="True">
-                <Node name="PlayersController.cs" selected="True" />
+              <Node name="Properties" expanded="True">
+                <Node name="PublishProfiles" expanded="True">
+                  <Node name="FolderProfile.pubxml" selected="True" />
+                </Node>
+                <Node name="serviceDependencies.json" expanded="True" />
               </Node>
-              <Node name="Models" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="AppRoles" expanded="True" />
                 <Node name="Home" expanded="True" />
@@ -39,6 +41,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.AuthSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
 </Properties>
