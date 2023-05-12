@@ -21,14 +21,19 @@ namespace AuthSystem.Controllers
         }
 
         // GET: Team
-        public async Task<IActionResult> Index()
+        public IActionResult Index(string leagueName)
         {
-            var teams = await _context.Teams
-                .Include(t => t.League)
-            .ToListAsync();
+            var teams = _context.Teams.Include(t => t.League).ToList();
+
+            if (!string.IsNullOrEmpty(leagueName))
+            {
+                leagueName = leagueName.ToLower();
+                teams = teams.Where(t => t.League.Name.ToLower().Contains(leagueName)).ToList();
+            }
 
             return View(teams);
         }
+
 
         [Authorize(Roles = "Admin")]
         // GET: Team/Create

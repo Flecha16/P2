@@ -10,6 +10,7 @@ using Player = AuthSystem.Models.Player;
 using System.Numerics;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
+using Microsoft.IdentityModel.Tokens;
 
 namespace AuthSystem.Controllers
 {
@@ -22,16 +23,57 @@ namespace AuthSystem.Controllers
             _context = context;
         }
 
-        // GET: Player
-        public async Task<IActionResult> Index()
+        // GET: Team
+        public IActionResult Index(string leagueName, string teamName, string val, string nat, string pos)
         {
-            var players = await _context.Players
-                .Include(p => p.League)
-                .Include(p => p.Team)
-                .ToListAsync();
+            var players = _context.Players.Include(p => p.League).Include(p => p.Team).ToList();
+
+            if (!string.IsNullOrEmpty(leagueName))
+            {
+                leagueName = leagueName.ToLower();
+                players = players.Where(p => p.League.Name.ToLower().Contains(leagueName)).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(teamName))
+            {
+                teamName = teamName.ToLower();
+                players = players.Where(p => p.Team.Name.ToLower().Contains(teamName)).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(val))
+            {
+                if(val == "gt90")
+                {
+                    players = players.Where(p => p.Valoration >= 90).ToList();
+                } else if (val == "80")
+                {
+                    players = players.Where(p => p.Valoration >= 80 && p.Valoration < 90).ToList();
+                }
+                else
+                {
+                    players = players.Where(p => p.Valoration < 80).ToList();
+                }
+            }
+
+            if (!string.IsNullOrEmpty(pos))
+            {
+                if (Enum.TryParse(typeof(Position), pos, ignoreCase: true, out object enumValue))
+                {
+                    players = players.Where(p => p.Position == (Position)enumValue).ToList();
+                }
+            }
+
+            if (!string.IsNullOrEmpty(nat))
+            {
+                if (Enum.TryParse(typeof(Nationality), nat, ignoreCase: true, out object enumValue))
+                {
+                    players = players.Where(p => p.Nationality == (Nationality)enumValue).ToList();
+                }
+            }
 
             return View(players);
         }
+
 
         [Authorize(Roles = "Admin")]
         // GET: Player/Create

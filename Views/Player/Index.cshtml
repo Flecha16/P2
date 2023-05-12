@@ -8,6 +8,37 @@
 <title>@ViewData["Title"] - Sports Analytics</title>
 
 <h1 class="mb-4 text-center" style="color: white; font-weight: bold"> @ViewData["Title"]</h1>
+
+<form method="get" action="@Url.Action("Index", "Player")" class="mb-4">
+    <div class="input-group">
+        <input type="text" name="leagueName" class="form-control me-4" placeholder="Search by league">
+        <input type="text" name="teamName" class="form-control me-4" placeholder="Search by team">
+        <select name="val" class="form-select me-4">
+            <option value="">Select a valoration range</option>
+            <option value="gt90">Mayor a 90</option>
+            <option value="80-89">De 80 - 89</option>
+            <option value="lt80">Menor a 80</option>
+        </select>
+        <select name="pos" class="form-select me-4">
+            <option value="">Select Position</option>
+            @foreach (var enumValue in Enum.GetValues(typeof(Position)))
+            {
+                var enumName = Enum.GetName(typeof(Position), enumValue);
+                <option value="@enumName">@enumName</option>
+            }
+        </select>
+        <select name="nat" class="form-select me-4">
+            <option value="">Select Nationality</option>
+            @foreach (var enumValue in Enum.GetValues(typeof(Nationality)))
+            {
+                var enumName = Enum.GetName(typeof(Nationality), enumValue);
+                <option value="@enumName">@enumName</option>
+            }
+        </select>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
+
 @if (User.IsInRole("Admin"))
 {
     <div class="table-responsive">
