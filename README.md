@@ -1,6 +1,6 @@
 # P2
 
-### Create BDD
+## Create BDD
 
 To create BDD, you must execute dotnet ef database update on Mac or Update-Database on Windows.
 
