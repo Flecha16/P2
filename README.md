@@ -1,4 +1,4 @@
-# P2
+#  Sports Analytics Project
 
 ## Create BDD
 
