@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AuthSystem.Data;
 using AuthSystem.Models;
+using AuthSystem.Migrations;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace AuthSystem.Controllers
 {
@@ -22,11 +25,12 @@ namespace AuthSystem.Controllers
         {
             var teams = await _context.Teams
                 .Include(t => t.League)
-                .ToListAsync();
+            .ToListAsync();
 
             return View(teams);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Team/Create
         public IActionResult Create()
         {
@@ -53,6 +57,7 @@ namespace AuthSystem.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Team/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -66,7 +71,7 @@ namespace AuthSystem.Controllers
             {
                 return NotFound();
             }
-
+            ViewBag.LeagueId = new SelectList(_context.Leagues, "Id", "Name", team.LeagueId);
             var league = await _context.Leagues.FindAsync(team.LeagueId);
             ViewData["LeagueName"] = league.Name;
 
@@ -76,7 +81,7 @@ namespace AuthSystem.Controllers
         // POST: Team/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Stadium,City")] Team team)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Stadium,City,LeagueId")] Team team)
         {
             if (id != team.Id)
             {
@@ -96,7 +101,7 @@ namespace AuthSystem.Controllers
                 teamToUpdate.Name = team.Name;
                 teamToUpdate.Stadium = team.Stadium;
                 teamToUpdate.City = team.City;
-
+                teamToUpdate.LeagueId = team.LeagueId;
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
@@ -115,7 +120,7 @@ namespace AuthSystem.Controllers
 
         }
 
-
+        [Authorize(Roles = "Admin")]
         // GET: Team/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

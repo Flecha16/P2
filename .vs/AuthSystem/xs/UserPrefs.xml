@@ -1,16 +1,28 @@
 ﻿<Properties StartupConfiguration="{3EC7B0BC-6469-4E33-86F8-03A2DDAFC6C1}|https">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Properties/PublishProfiles/FolderProfile.pubxml">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.AuthSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Player/Index.cshtml">
     <Files>
-      <File FileName="Views/Player/Create.cshtml" />
-      <File FileName="Views/AppRoles/Edit.cshtml" />
-      <File FileName="Views/AppRoles/Index.cshtml" />
-      <File FileName="Models/Player.cs" />
-      <File FileName="Controllers/PlayersController.cs" Line="22" Column="23" />
-      <File FileName="Properties/PublishProfiles/FolderProfile.pubxml" Line="17" Column="11" />
+      <File FileName="Views/Team/Create.cshtml" Line="42" Column="89" />
+      <File FileName="Views/Team/Delete.cshtml" Line="1" Column="1" />
+      <File FileName="Views/Team/Edit.cshtml" Line="1" Column="1" />
+      <File FileName="Views/Team/Index.cshtml" Line="5" Column="31" />
+      <File FileName="Views/Player/Create.cshtml" Line="1" Column="1" />
+      <File FileName="Views/League/Create.cshtml" Line="1" Column="1" />
+      <File FileName="Controllers/UsersController.cs" Line="26" Column="40" />
+      <File FileName="Controllers/AppRolesController.cs" Line="18" Column="37" />
+      <File FileName="Controllers/HomeController.cs" Line="10" Column="16" />
+      <File FileName="Controllers/LeagueController.cs" Line="104" Column="37" />
+      <File FileName="Controllers/PlayersController.cs" Line="12" Column="19" />
+      <File FileName="Controllers/TeamsController.cs" Line="123" Column="37" />
+      <File FileName="Views/AppRoles/Create.cshtml" Line="1" Column="1" />
+      <File FileName="Views/AppRoles/Index.cshtml" Line="1" Column="1" />
+      <File FileName="Views/League/Index.cshtml" Line="1" Column="1" />
+      <File FileName="Views/Player/Index.cshtml" Line="94" Column="21" />
+      <File FileName="Views/Statistics/Index.cshtml" Line="1" Column="1" />
+      <File FileName="Views/Users/Index.cshtml" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,21 +30,34 @@
           <Node name="AuthSystem" expanded="True">
             <Node name="AuthSystem" expanded="True">
               <Node name="Dependencies" expanded="True" />
-              <Node name="Properties" expanded="True">
-                <Node name="PublishProfiles" expanded="True">
-                  <Node name="FolderProfile.pubxml" selected="True" />
+              <Node name="Controllers" expanded="True" />
+              <Node name="Migrations" expanded="True">
+                <Node name="Areas" expanded="True">
+                  <Node name="Identity" expanded="True">
+                    <Node name="Data" expanded="True" />
+                    <Node name="Pages" expanded="True" />
+                  </Node>
                 </Node>
+              </Node>
+              <Node name="Models" expanded="True" />
+              <Node name="Properties" expanded="True">
+                <Node name="PublishProfiles" expanded="True" />
                 <Node name="serviceDependencies.json" expanded="True" />
               </Node>
               <Node name="Views" expanded="True">
+                <Node name="Account" expanded="True">
+                  <Node name="Login.cshtml" expanded="True" />
+                </Node>
                 <Node name="AppRoles" expanded="True" />
                 <Node name="Home" expanded="True" />
                 <Node name="League" expanded="True" />
-                <Node name="Player" expanded="True" />
-                <Node name="Shared" expanded="True">
-                  <Node name="_Layout.cshtml" expanded="True" />
+                <Node name="Player" expanded="True">
+                  <Node name="Index.cshtml" selected="True" />
                 </Node>
+                <Node name="Shared" expanded="True" />
+                <Node name="Statistics" expanded="True" />
                 <Node name="Team" expanded="True" />
+                <Node name="Users" expanded="True" />
               </Node>
               <Node name="appsettings.json" expanded="True" />
             </Node>
@@ -41,7 +66,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.AuthSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

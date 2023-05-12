@@ -99,16 +99,15 @@ namespace AuthSystem.Controllers
                 Email = user.Email
             };
 
-            ViewData["Roles"] = new SelectList(_roleManager.Roles, "Name", "Name");
+            var userRoles = await _userManager.GetRolesAsync(user);
+            ViewData["Roles"] = new SelectList(_roleManager.Roles, "Name", "Name", userRoles);
 
             return View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(ApplicationUser model)
+        public async Task<IActionResult> Edit(ApplicationUser model, string roleName)
         {
-            if (ModelState.IsValid)
-            {
                 var user = await _userManager.FindByIdAsync(model.Id);
                 if (user == null)
                 {
@@ -118,6 +117,31 @@ namespace AuthSystem.Controllers
                 user.FirstName = model.FirstName;
                 user.LastName = model.LastName;
                 user.Email = model.Email;
+
+                // Actualizar el rol del usuario
+                var currentRoles = await _userManager.GetRolesAsync(user);
+                var result = await _userManager.RemoveFromRolesAsync(user, currentRoles);
+                if (!result.Succeeded)
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                        _logger.LogError($"Error removing user roles: {error.Description}");
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(roleName))
+                {
+                    result = await _userManager.AddToRoleAsync(user, roleName);
+                    if (!result.Succeeded)
+                    {
+                        foreach (var error in result.Errors)
+                        {
+                            ModelState.AddModelError("", error.Description);
+                            _logger.LogError($"Error adding user to role: {error.Description}");
+                        }
+                    }
+                }
 
                 // Validar si los valores del usuario se han actualizado correctamente
                 var updatedUser = await _userManager.UpdateAsync(user);
@@ -129,15 +153,19 @@ namespace AuthSystem.Controllers
                         _logger.LogError($"Error updating user: {error.Description}");
                     }
 
+                    var userRoles = await _userManager.GetRolesAsync(user);
+                    ViewData["Roles"] = new SelectList(_roleManager.Roles, "Name", "Name", userRoles);
                     return View(model);
                 }
 
                 return RedirectToAction("Index");
-            }
+            
 
-            return View(model);
-
+            //var roles = await _roleManager.Roles.ToListAsync();
+            //ViewData["Roles"] = new SelectList(roles, "Name", "Name");
+            //return View(model);
         }
+
         [HttpGet]
         public async Task<IActionResult> Delete(string id)
         {

@@ -7,6 +7,9 @@ using AuthSystem.Data;
 using AuthSystem.Models;
 using AuthSystem.Migrations;
 using Player = AuthSystem.Models.Player;
+using System.Numerics;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace AuthSystem.Controllers
 {
@@ -30,6 +33,7 @@ namespace AuthSystem.Controllers
             return View(players);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Player/Create
         public IActionResult Create()
         {
@@ -60,6 +64,7 @@ namespace AuthSystem.Controllers
 
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Player/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -82,37 +87,37 @@ namespace AuthSystem.Controllers
         // POST: Player/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,DateOfBirth,Nationality,Position,Valoration,LeagueId,TeamId")] Player player)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,DateOfBirth,Nationality,Position,Valoration, LeagueId, TeamId")] Player player)
         {
             if (id != player.Id)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(player);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!PlayerExists(player.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
+            var team = await _context.Teams.FindAsync(player.TeamId);
+            var league = await _context.Leagues.FindAsync(team.LeagueId);
 
-            ViewBag.LeagueId = new SelectList(_context.Leagues, "Id", "Name", player.LeagueId);
-            ViewBag.TeamId = new SelectList(_context.Teams, "Id", "Name", player.TeamId);
-            return View(player);
+            player.Team = team;
+            player.League = league;
+
+            try
+            {
+                _context.Update(player);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!PlayerExists(player.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return RedirectToAction(nameof(Index));
+            
         }
 
         private bool PlayerExists(int id)
@@ -120,6 +125,7 @@ namespace AuthSystem.Controllers
             return _context.Players.Any(e => e.Id == id);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Player/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

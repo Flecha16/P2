@@ -35,15 +35,18 @@
                         <span asp-validation-for="City" class="text-danger"></span>
                     </div>
                     <div class="form-group mb-3">
-                        <label asp-for="League" class="form-label fw-bold text-white">League Name</label>
-                        <input asp-for="League" class="form-control" value="@ViewData["LeagueName"]" disabled />
-                    </div>
-                    <div class="d-flex justify-content-center mt-2">
-                        <button type="submit" class="btn btn-primary btn-lg me-4">Save</button>
-                        <a asp-action="Index" class="btn btn-secondary btn-lg">Cancel</a>
-                    </div>
-                </form>
+                    <label asp-for="LeagueId" class="form-label fw-bold text-white">League Name</label>
+                    <select asp-for="LeagueId" class="form-control" aria-required="true" asp-items="ViewBag.LeagueId">
+                        <option value="">-- Select League --</option>
+                    </select>
+                    <span asp-validation-for="LeagueId" class="text-danger"></span>
             </div>
+            <div class="d-flex justify-content-center mt-2">
+                <button type="submit" class="btn btn-primary btn-lg me-4">Save</button>
+                <a asp-action="Index" class="btn btn-secondary btn-lg">Cancel</a>
+            </div>
+            </form>
+        </div>
         </div>
     </div>
 </div>

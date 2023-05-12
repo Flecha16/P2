@@ -1,8 +1,8 @@
-﻿@*@using Microsoft.AspNetCore.Identity
-@model AuthSystem.Models.Team
+﻿@using Microsoft.AspNetCore.Identity
+@model AuthSystem.Models.Player
 
 @{
-    ViewData["Title"] = "Delete Team";
+    ViewData["Title"] = "Delete Player";
 }
 
 <title>@ViewData["Title"] - Sports Analytics</title>
@@ -13,33 +13,51 @@
     <div class="col-md-6">
         <div class="card shadow-sm">
             <div class="card-body" style="background-color: #108CC6;">
-                <form method="post" asp-route-id="@Model.Id" method="post" class="card p-4" style="background-color: #108CC6; color: #fff;">
+                <form method="post" class="card p-4" style="background-color: #108CC6; color: #fff;" asp-action="Delete" asp-route-id="@Model.Id">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
                     <div class="form-group mb-3">
-                        <label asp-for="Id" class="form-label fw-bold text-white">ID</label>
+                        <label asp-for="Id" class="form-label fw-bold">ID</label>
                         <input asp-for="Id" class="form-control" readonly />
                     </div>
-                    <div class="form-group mb-3">
-                        <label asp-for="Name" class="form-label fw-bold text-white">Team Name</label>
-                        <input asp-for="Name" class="form-control" aria-required="true" readonly />
+                    <div class="form-group row mb-3">
+                        <div class="col">
+                            <label asp-for="FirstName" class="form-label fw-bold text-white">First Name</label>
+                            <input asp-for="FirstName" class="form-control" readonly />
+                        </div>
+                        <div class="col">
+                            <label asp-for="LastName" class="form-label fw-bold text-white">Last Name</label>
+                            <input asp-for="LastName" class="form-control" readonly />
+                        </div>
                     </div>
                     <div class="form-group mb-3">
-                        <label asp-for="Stadium" class="form-label fw-bold text-white">Stadium</label>
-                        <input asp-for="Stadium" class="form-control" aria-required="true" readonly />
+                        <label asp-for="DateOfBirth" class="form-label fw-bold text-white">Date Of Birth</label>
+                        <input asp-for="DateOfBirth" class="form-control" readonly />
+                    </div>
+                    <div class="form-group row mb-3">
+                        <div class="col">
+                            <label asp-for="Nationality" class="form-label fw-bold text-white">Nationality</label>
+                            <input asp-for="Nationality" class="form-control" readonly />
+                        </div>
+                        <div class="col">
+                            <label asp-for="Position" class="form-label fw-bold text-white">Position</label>
+                            <input asp-for="Position" class="form-control" readonly />
+                        </div>
                     </div>
                     <div class="form-group mb-3">
-                        <label asp-for="City" class="form-label fw-bold text-white">City</label>
-                        <input asp-for="City" class="form-control" aria-required="true" readonly />
+                        <label asp-for="Valoration" class="form-label fw-bold text-white">Valoration</label>
+                        <input asp-for="Valoration" class="form-control" readonly />
                     </div>
-                    <div class="form-group mb-3">
-                        <label asp-for="LeagueId" class="form-label fw-bold text-white">League Name</label>
-                        <input asp-for="League.Name" class="form-control" aria-required="true" readonly />
+                    <div class="form-group row mb-3">
+                        <div class="col">
+                            <label asp-for="TeamId" class="form-label fw-bold text-white">Team Name</label>
+                            <input asp-for="Team.Name" class="form-control" readonly />
+                        </div>
+                        <div class="col">
+                            <label asp-for="LeagueId" class="form-label fw-bold text-white">League Name</label>
+                            <input asp-for="League.Name" class="form-control" aria-required="true" readonly />
+                        </div>
                     </div>
-                    <div class="form-group mb-3">
-                        <label asp-for="Country" class="form-label fw-bold text-white">Country</label>
-                        <input asp-for="Country" class="form-control" readonly />
-                    </div>
+
                     <div class="d-flex justify-content-center mt-2">
                         <button type="submit" class="btn btn-danger btn-lg me-4">Delete</button>
                         <a asp-action="Index" class="btn btn-secondary btn-lg">Cancel</a>
@@ -49,7 +67,3 @@
         </div>
     </div>
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}*@

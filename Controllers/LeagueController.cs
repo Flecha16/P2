@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AuthSystem.Models;
 using AuthSystem.Data;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace AuthSystem.Controllers
 {
@@ -26,6 +28,7 @@ namespace AuthSystem.Controllers
             return View(leagues);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Leagues/Create
         public IActionResult Create()
         {
@@ -46,6 +49,7 @@ namespace AuthSystem.Controllers
             return View(league);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Leagues/Edit/5
         public IActionResult Edit(int? id)
         {
@@ -97,6 +101,7 @@ namespace AuthSystem.Controllers
             return View(league);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Leagues/Delete/5
         public IActionResult Delete(int? id)
         {

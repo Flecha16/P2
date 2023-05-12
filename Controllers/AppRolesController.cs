@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace AuthSystem.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AppRolesController : Controller
     {
         private readonly RoleManager<IdentityRole> _roleManager;
@@ -14,14 +15,14 @@ namespace AuthSystem.Controllers
         }
 
         //List All  the roles created by the user.
-        [Authorize(Roles = "Admin, Manager")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             var roles = _roleManager.Roles;
             return View(roles);
         }
 
-        [Authorize(Roles = "Admin, Manager")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult Create()
         {
@@ -38,7 +39,7 @@ namespace AuthSystem.Controllers
             return RedirectToAction("Index");
         }
 
-        [Authorize(Roles = "Admin, Manager")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> Edit(string id)
         {

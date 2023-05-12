@@ -37,12 +37,12 @@ namespace AuthSystem.Models
         [ForeignKey("League")]
         [Required(ErrorMessage = "The League field is required.")]
         public int LeagueId { get; set; }
-        public League League { get; set; }
+        public virtual League League { get; set; }
 
         [ForeignKey("Team")]
         [Required(ErrorMessage = "The Team field is required.")]
         public int TeamId { get; set; }
-        public Team Team { get; set; }
+        public virtual Team Team { get; set; }
 
         public static ValidationResult ValidateDateOfBirth(DateTime dateOfBirth, ValidationContext context)
         {
