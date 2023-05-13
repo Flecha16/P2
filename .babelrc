@@ -2,6 +2,15 @@
     "presets": [
       "@babel/preset-env"
     ],
-    "plugins": []
+    "plugins": [
+      "@babel/plugin-transform-runtime"
+    ],
+    "sourceMaps": true,
+    "ignore": [
+      "node_modules/**"
+    ],
+    "only": [
+      "."
+    ]
   }
   

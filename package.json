@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "babel src -d lib"
+    "build": "babel . -d lib"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.0",
