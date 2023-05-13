@@ -1,59 +1,34 @@
 ﻿<Properties StartupConfiguration="{3EC7B0BC-6469-4E33-86F8-03A2DDAFC6C1}|https">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.AuthSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Models/Statistic.cs">
+  <MonoDevelop.Ide.ItemProperties.AuthSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="package.json">
     <Files>
       <File FileName="Views/Player/Index.cshtml" Line="31" Column="48" />
-      <File FileName="Controllers/PlayersController.cs" Line="58" Column="44" />
-      <File FileName="Views/Statistics/Index.cshtml" Line="1" Column="1" />
-      <File FileName="Models/Statistics.cs" Line="18" Column="1" />
-      <File FileName="Models/Player.cs" Line="18" Column="70" />
+      <File FileName="Controllers/PlayersController.cs" />
+      <File FileName="Views/Statistics/Index.cshtml" Line="15" Column="6" />
+      <File FileName="Models/Player.cs" />
+      <File FileName="appsettings.json" Line="16" Column="35" />
+      <File FileName="appsettings.Development.json" Line="15" Column="2" />
+      <File FileName="Program.cs" Line="17" Column="1" />
+      <File FileName="package.json" Line="17" Column="1" />
+      <File FileName="package-lock.json" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="AuthSystem" expanded="True">
             <Node name="AuthSystem" expanded="True">
-              <Node name="Dependencies" expanded="True" />
-              <Node name="Controllers" expanded="True" />
-              <Node name="Migrations" expanded="True">
-                <Node name="Areas" expanded="True">
-                  <Node name="Identity" expanded="True">
-                    <Node name="Data" expanded="True" />
-                    <Node name="Pages" expanded="True" />
-                  </Node>
-                </Node>
-              </Node>
-              <Node name="Models" expanded="True">
-                <Node name="Statistic.cs" selected="True" />
-              </Node>
-              <Node name="Properties" expanded="True">
-                <Node name="PublishProfiles" expanded="True" />
-                <Node name="serviceDependencies.json" expanded="True" />
-              </Node>
-              <Node name="Views" expanded="True">
-                <Node name="Account" expanded="True">
-                  <Node name="Login.cshtml" expanded="True" />
-                </Node>
-                <Node name="AppRoles" expanded="True" />
-                <Node name="Home" expanded="True" />
-                <Node name="League" expanded="True" />
-                <Node name="Player" expanded="True" />
-                <Node name="Shared" expanded="True" />
-                <Node name="Statistics" expanded="True" />
-                <Node name="Team" expanded="True" />
-                <Node name="Users" expanded="True" />
-              </Node>
               <Node name="appsettings.json" expanded="True" />
+              <Node name="package.json" expanded="True" selected="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
 </Properties>
