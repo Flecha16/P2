@@ -45,11 +45,11 @@ namespace AuthSystem.Controllers
                 if(val == "gt90")
                 {
                     players = players.Where(p => p.Valoration >= 90).ToList();
-                } else if (val == "80")
+                } else if (val == "80-89")
                 {
                     players = players.Where(p => p.Valoration >= 80 && p.Valoration < 90).ToList();
                 }
-                else
+                else if (val == "lt80")
                 {
                     players = players.Where(p => p.Valoration < 80).ToList();
                 }

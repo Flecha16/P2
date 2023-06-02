@@ -14,24 +14,24 @@ namespace AuthSystem.Models
         [ForeignKey("Team")]
         [Required(ErrorMessage = "The Team field is required.")]
         public int TeamId { get; set; }
-        public Team Team { get; set; }
+        public virtual Team Team { get; set; }
 
         [ForeignKey("Player")]
         [Required(ErrorMessage = "The Player field is required.")]
         public int PlayerId { get; set; }
-        public Player Player { get; set; }
+        public virtual Player Player { get; set; }
+
+        [Required(ErrorMessage = "The Matches field is required.")]
+        public int Matches { get; set; }
+
+        [Required(ErrorMessage = "The Minutes field is required.")]
+        public double Minutes { get; set; }
 
         [Required(ErrorMessage = "The Goals field is required.")]
         public int Goals { get; set; }
 
         [Required(ErrorMessage = "The Assists field is required.")]
         public int Assists { get; set; }
-
-        [Required(ErrorMessage = "The Total Passes field is required.")]
-        public int TotalPasses { get; set; }
-
-        [Required(ErrorMessage = "The CompletedPasses field is required.")]
-        public int CompletedPasses { get; set; }
 
         [Required(ErrorMessage = "The Yellow Cards field is required.")]
         public int YellowCards { get; set; }

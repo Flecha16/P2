@@ -16,6 +16,7 @@ public class AuthDbContext : IdentityDbContext<ApplicationUser>
     public DbSet<League> Leagues { get; set; }
     public DbSet<Team> Teams { get; set; }
     public DbSet<Player> Players { get; set; }
+    public DbSet<Statistic> Statistics { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

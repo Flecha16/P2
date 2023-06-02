@@ -153,6 +153,51 @@ namespace AuthSystem.Migrations
                     b.ToTable("Players");
                 });
 
+            modelBuilder.Entity("AuthSystem.Models.Statistic", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("Assists")
+                        .HasColumnType("int");
+
+                    b.Property<double>("AverageSpeed")
+                        .HasColumnType("double");
+
+                    b.Property<int>("Goals")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Km")
+                        .HasColumnType("double");
+
+                    b.Property<int>("Matches")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Minutes")
+                        .HasColumnType("double");
+
+                    b.Property<int>("PlayerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RedCards")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TeamId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("YellowCards")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PlayerId");
+
+                    b.HasIndex("TeamId");
+
+                    b.ToTable("Statistics");
+                });
+
             modelBuilder.Entity("AuthSystem.Models.Team", b =>
                 {
                     b.Property<int>("Id")
@@ -335,6 +380,25 @@ namespace AuthSystem.Migrations
                         .IsRequired();
 
                     b.Navigation("League");
+
+                    b.Navigation("Team");
+                });
+
+            modelBuilder.Entity("AuthSystem.Models.Statistic", b =>
+                {
+                    b.HasOne("AuthSystem.Models.Player", "Player")
+                        .WithMany()
+                        .HasForeignKey("PlayerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AuthSystem.Models.Team", "Team")
+                        .WithMany()
+                        .HasForeignKey("TeamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Player");
 
                     b.Navigation("Team");
                 });

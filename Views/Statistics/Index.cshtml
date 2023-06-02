@@ -1,8 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@model IEnumerable<AuthSystem.Models.Player>
+@model IEnumerable<AuthSystem.Models.Statistic>
 
 @{
-    ViewData["Title"] = "Players List";
+    ViewData["Title"] = "Global Statistics";
 }
 
 <title>@ViewData["Title"] - Sports Analytics</title>
@@ -16,12 +16,13 @@
                 <tr>
                     <th class="text-center" style="width: auto;">ID</th>
                     <th class="text-center" style="width: auto;">Name</th>
-                    <th class="text-center" style="width: auto;">Age</th>
-                    <th class="text-center" style="width: auto;">Nationality</th>
+                    <th class="text-center" style="width: auto;">Team</th>
+                    <th class="text-center" style="width: auto;">Matches</th>
+                    <th class="text-center" style="width: auto;">Goals</th>
+                    <th class="text-center" style="width: auto;">Assists</th>
                     <th class="text-center" style="width: auto;">Position</th>
                     <th class="text-center" style="width: auto;">Valoration</th>
-                    <th class="text-center" style="width: auto;">League Name</th>
-                    <th class="text-center" style="width: auto;">Team Name</th>
+                    <th class="text-center" style="width: auto;">Information</th>
                     <th class="text-center" style="width: auto;">Update</th>
                     <th class="text-center" style="width: auto;">Delete</th>
                 </tr>
@@ -31,23 +32,14 @@
                 {
                     <tr>
                         <td class="text-center">@Html.DisplayFor(modelItem => item.Id)</td>
-                        <td class="text-center">@Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)</td>
-                        <td class="text-center">
-                            @{
-                                DateTime currentDate = DateTime.Now;
-                                int age = currentDate.Year - item.DateOfBirth.Year;
-                                if (currentDate < item.DateOfBirth.AddYears(age))
-                                {
-                                    age--;
-                                }
-                            }
-                            @age
-                        </td>
-                        <td class="text-center">@Html.DisplayFor(modelItem => item.Nationality)</td>
-                        <td class="text-center">@Html.DisplayFor(modelItem => item.Position)</td>
-                        <td class="text-center">@Html.DisplayFor(modelItem => item.Valoration)</td>
-                        <td class="text-center">@Html.DisplayFor(modelItem => item.League.Name)</td>
-                        <td class="text-center">@Html.DisplayFor(modelItem => item.Team.Name)</td>
+                        <td class="text-center">@Html.DisplayFor(modelItem => item.Player.FirstName) @Html.DisplayFor(modelItem => item.Player.LastName)</td>
+                        <td class="text-center">@Html.DisplayFor(modelItem => item.Player.Team.Name)</td>
+                        <td class="text-center">@Html.DisplayFor(modelItem => item.Matches)</td>
+                        <td class="text-center">@Html.DisplayFor(modelItem => item.Goals)</td>
+                        <td class="text-center">@Html.DisplayFor(modelItem => item.Assists)</td>
+                        <td class="text-center">@Html.DisplayFor(modelItem => item.Player.Position)</td>
+                        <td class="text-center">@Html.DisplayFor(modelItem => item.Player.Valoration)</td>
+                        <td class="text-center"><a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-success">More Info</a></td>
                         <td class="text-center"><a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Edit</a></td>
                         <td class="text-center"><a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a></td>
                     </tr>
@@ -57,8 +49,8 @@
     </div>
 
     <div class="d-flex justify-content-center mt-2">
-        <a asp-action="Create" class="btn btn-primary btn-lg me-4">Create Player</a>
-        <a asp-action="Create" asp-controller="Team" class="btn btn-primary btn-lg me-4">Create Team</a>
+        <a asp-action="Create" class="btn btn-primary btn-lg me-4">Add Statistics</a>
+        <a asp-action="Create" asp-controller="Player" class="btn btn-primary btn-lg me-4">Create Player</a>
     </div>
 }
 else
@@ -69,12 +61,13 @@ else
                 <tr>
                     <th class="text-center" style="width: auto;">ID</th>
                     <th class="text-center" style="width: auto;">Name</th>
-                    <th class="text-center" style="width: auto;">Age</th>
-                    <th class="text-center" style="width: auto;">Nationality</th>
+                    <th class="text-center" style="width: auto;">Team</th>
+                    <th class="text-center" style="width: auto;">Matches</th>
+                    <th class="text-center" style="width: auto;">Goals</th>
+                    <th class="text-center" style="width: auto;">Assists</th>
                     <th class="text-center" style="width: auto;">Position</th>
                     <th class="text-center" style="width: auto;">Valoration</th>
-                    <th class="text-center" style="width: auto;">League Name</th>
-                    <th class="text-center" style="width: auto;">Team Name</th>
+                    <th class="text-center" style="width: auto;">Information</th>
                 </tr>
             </thead>
             <tbody style="background-color: white;">
@@ -82,13 +75,14 @@ else
                 {
                     <tr>
                         <td class="text-center">@Html.DisplayFor(modelItem => item.Id)</td>
-                        <td class="text-center">@Html.DisplayFor(modelItem => item.FirstName + " " + item.LastName)</td>
-                        <td class="text-center">@Html.DisplayFor(modelItem => item.DateOfBirth)</td>
-                        <td class="text-center">@Html.DisplayFor(modelItem => item.Nationality)</td>
-                        <td class="text-center">@Html.DisplayFor(modelItem => item.Position)</td>
-                        <td class="text-center">@Html.DisplayFor(modelItem => item.Valoration)</td>
-                        <td class="text-center">@Html.DisplayFor(modelItem => item.League.Name)</td>
+                        <td class="text-center">@Html.DisplayFor(modelItem => item.Player.FirstName) @Html.DisplayFor(modelItem => item.Player.LastName)</td>
                         <td class="text-center">@Html.DisplayFor(modelItem => item.Team.Name)</td>
+                        <td class="text-center">@Html.DisplayFor(modelItem => item.Matches)</td>
+                        <td class="text-center">@Html.DisplayFor(modelItem => item.Goals)</td>
+                        <td class="text-center">@Html.DisplayFor(modelItem => item.Assists)</td>
+                        <td class="text-center">@Html.DisplayFor(modelItem => item.Player.Position)</td>
+                        <td class="text-center">@Html.DisplayFor(modelItem => item.Player.Valoration)</td>
+                        <!--<td class="text-center"><a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-success">More Info</a></td>-->
                     </tr>
                 }
             </tbody>

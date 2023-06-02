@@ -1,26 +1,42 @@
 ﻿<Properties StartupConfiguration="{3EC7B0BC-6469-4E33-86F8-03A2DDAFC6C1}|https">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/AppRolesController.cs">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.AuthSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Statistics/Delete.cshtml">
     <Files>
-      <File FileName="Views/Shared/_Layout.cshtml" Line="15" Column="1" />
-      <File FileName="Controllers/UsersController.cs" Line="14" Column="33" />
-      <File FileName="Controllers/AppRolesController.cs" Line="18" Column="37" />
+      <File FileName="Views/Statistics/Index.cshtml" Line="85" Column="150" />
+      <File FileName="Controllers/StatisticsController.cs" Line="108" Column="21" />
+      <File FileName="Views/Statistics/Edit.cshtml" Line="63" Column="153" />
+      <File FileName="Views/Statistics/Delete.cshtml" Line="23" Column="21" />
+      <File FileName="Models/Statistic.cs" Line="1" Column="1" />
+      <File FileName="Views/Statistics/Create.cshtml" Line="35" Column="105" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="AuthSystem" expanded="True">
             <Node name="AuthSystem" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="AppRolesController.cs" selected="True" />
+              <Node name="Controllers" expanded="True" />
+              <Node name="Migrations" expanded="True">
+                <Node name="Areas" expanded="True">
+                  <Node name="Identity" expanded="True">
+                    <Node name="Data" expanded="True" />
+                  </Node>
+                </Node>
               </Node>
+              <Node name="Models" expanded="True" />
               <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True" />
                 <Node name="Player" expanded="True" />
                 <Node name="Shared" expanded="True" />
+                <Node name="Statistics" expanded="True">
+                  <Node name="Delete.cshtml" selected="True" />
+                </Node>
+                <Node name="Team" expanded="True" />
               </Node>
               <Node name="appsettings.json" expanded="True" />
             </Node>
@@ -29,6 +45,4 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.AuthSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MultiItemStartupConfigurations />
 </Properties>
