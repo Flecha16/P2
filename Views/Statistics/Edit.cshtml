@@ -22,24 +22,31 @@
                     <div class="form-group row mb-3">
                         <div class="col">
                             <label asp-for="Matches" class="form-label fw-bold text-white">Matches (@Model.Matches)</label>
-                            <input asp-for="Matches" class="form-control" aria-required="true" value="1"/>
+                            <input asp-for="Matches" class="form-control" aria-required="true" value="1" />
                             <span asp-validation-for="Matches" class="text-danger"></span>
                         </div>
                         <div class="col">
                             <label asp-for="Minutes" class="form-label fw-bold text-white">Minutes (@Model.Minutes)</label>
-                            <input asp-for="Minutes" class="form-control" aria-required="true" value="90"/>
+                            <input asp-for="Minutes" class="form-control" aria-required="true" value="90" />
                             <span asp-validation-for="Minutes" class="text-danger"></span>
                         </div>
                     </div>
 
                     <div class="form-group row mb-3">
                         <div class="col">
-                            <label asp-for="Goals" class="form-label fw-bold text-white">Goals (@Model.Goals)</label>
+                            @{
+                                string goalsLabel = Model.Player?.Position == Position.GK ? $"Goals Received ({Model.Goals})" : $"Goals ({Model.Goals})";
+                            }
+                            <label asp-for="Goals" class="form-label fw-bold text-white">@goalsLabel</label>
                             <input asp-for="Goals" class="form-control" aria-required="true" value="0"/>
                             <span asp-validation-for="Goals" class="text-danger"></span>
                         </div>
                         <div class="col">
-                            <label asp-for="Assists" class="form-label fw-bold text-white">Assists (@Model.Assists)</label>
+                            
+                            @{
+                                string assistsLabel = Model.Player?.Position == Position.GK ? $"Clean Sheet ({Model.Assists})" : $"Assists ({Model.Assists})";
+                            }
+                            <label asp-for="Assists" class="form-label fw-bold text-white">@assistsLabel</label>
                             <input asp-for="Assists" class="form-control" aria-required="true" value="0"/>
                             <span asp-validation-for="Assists" class="text-danger"></span>
                         </div>
@@ -48,24 +55,30 @@
                     <div class="form-group row mb-3">
                         <div class="col">
                             <label asp-for="YellowCards" class="form-label fw-bold text-white">Yellow Cards (@Model.YellowCards)</label>
-                            <input asp-for="YellowCards" class="form-control" aria-required="true" value="0"/>
+                            <input asp-for="YellowCards" class="form-control" aria-required="true" value="0" />
                             <span asp-validation-for="YellowCards" class="text-danger"></span>
                         </div>
                         <div class="col">
                             <label asp-for="RedCards" class="form-label fw-bold text-white">Red Cards (@Model.RedCards)</label>
-                            <input asp-for="RedCards" class="form-control" aria-required="true" value="0"/>
+                            <input asp-for="RedCards" class="form-control" aria-required="true" value="0" />
                             <span asp-validation-for="RedCards" class="text-danger"></span>
                         </div>
                     </div>
 
                     <div class="form-group row mb-3">
                         <div class="col">
-                            <label asp-for="AverageSpeed" class="form-label fw-bold text-white">Average Speed (@Model.AverageSpeed.ToString("0.00") km/h)</label>
+                            @{
+                                string speedLabel = Model.Player?.Position == Position.GK ? $"Shots Received ({Model.AverageSpeed})" : $"Average Speed ({Model.AverageSpeed.ToString("0.00")} km/h)";
+                            }
+                            <label asp-for="AverageSpeed" class="form-label fw-bold text-white">@speedLabel</label>
                             <input asp-for="AverageSpeed" class="form-control" aria-required="true" value="0" />
                             <span asp-validation-for="AverageSpeed" class="text-danger"></span>
                         </div>
                         <div class="col">
-                            <label asp-for="Km" class="form-label fw-bold text-white">Total Km (@Model.Km.ToString("0.00") km)</label>
+                            @{
+                                string kmLabel = Model.Player?.Position == Position.GK ? $"Passes ({Model.Km})" : $"Total Km ({Model.Km.ToString("0.00")} km)";
+                            }
+                            <label asp-for="Km" class="form-label fw-bold text-white">@kmLabel</label>
                             <input asp-for="Km" class="form-control" aria-required="true" value="0" />
                             <span asp-validation-for="Km" class="text-danger"></span>
                         </div>
