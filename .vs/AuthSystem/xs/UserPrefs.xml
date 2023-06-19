@@ -1,23 +1,27 @@
 ﻿<Properties StartupConfiguration="{3EC7B0BC-6469-4E33-86F8-03A2DDAFC6C1}|https">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/StatisticsController.cs">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.AuthSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Statistics/Details.cshtml">
     <Files>
       <File FileName="Migrations/Areas/Identity/Data/AuthDbContext.cs" />
       <File FileName="Models/Statistic.cs" />
-      <File FileName="Views/Statistics/Edit.cshtml" Line="10" Column="93" />
+      <File FileName="Views/Statistics/Edit.cshtml" />
       <File FileName="Views/Statistics/Create.cshtml" />
       <File FileName="Controllers/TeamsController.cs" />
-      <File FileName="Controllers/StatisticsController.cs" Line="10" Column="32" />
-      <File FileName="Views/Statistics/Details.cshtml" Line="2" Column="35" />
-      <File FileName="Views/Statistics/Index.cshtml" Line="42" Column="68" />
+      <File FileName="Controllers/StatisticsController.cs" Line="78" Column="1" />
+      <File FileName="Views/Statistics/Details.cshtml" Line="61" Column="18" />
+      <File FileName="Views/Statistics/Index.cshtml" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="AuthSystem" expanded="True">
             <Node name="AuthSystem" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="StatisticsController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="Migrations" expanded="True">
                 <Node name="Areas" expanded="True">
                   <Node name="Identity" expanded="True">
@@ -30,11 +34,14 @@
                 <Node name="Home" expanded="True" />
                 <Node name="Player" expanded="True" />
                 <Node name="Shared" expanded="True" />
-                <Node name="Statistics" expanded="True" />
+                <Node name="Statistics" expanded="True">
+                  <Node name="Details.cshtml" selected="True" />
+                </Node>
                 <Node name="Team" expanded="True" />
               </Node>
               <Node name="wwwroot" expanded="True">
                 <Node name="css" expanded="True" />
+                <Node name="Images" expanded="True" />
               </Node>
               <Node name="appsettings.json" expanded="True" />
             </Node>
@@ -43,11 +50,5 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.AuthSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
 </Properties>

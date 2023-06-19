@@ -8,3 +8,145 @@
 <title>@ViewData["Title"] - Sports Analytics</title>
 
 <h1 class="mb-4 text-center" style="color: white; font-weight: bold">@ViewData["Title"]</h1>
+
+<div class="row justify-content-center">
+    <div class="col-md-4 text-center">
+        @if (Model.Player.Position == Position.LW || Model.Player.Position == Position.RW ||
+                Model.Player.Position == Position.CF || Model.Player.Position == Position.ST)
+            {
+                <img src="/Images/F.jpeg" alt="Foto del Jugador" class="img-fluid" style="width: 600px; height: 280px;" />
+            }
+            else if (Model.Player.Position == Position.CDM || Model.Player.Position == Position.CM ||
+                Model.Player.Position == Position.LM || Model.Player.Position == Position.RM || Model.Player.Position == Position.CAM)
+            {
+                <img src="/Images/M.jpeg" alt="Foto del Jugador" class="img-fluid" style="width: 600px; height: 280px;" />
+            }
+            else if (Model.Player.Position == Position.CB || Model.Player.Position == Position.LB ||
+                Model.Player.Position == Position.SW || Model.Player.Position == Position.RB)
+            {
+                <img src="/Images/D.jpeg" alt="Foto del Jugador" class="img-fluid" style="width: 600px; height: 280px;" />
+            } 
+            else if (Model.Player.Position == Position.GK)
+            {
+                <img src="/Images/G.jpeg" alt="Foto del Jugador" class="img-fluid" style="width: 600px; height: 280px;" />
+            }
+    </div>
+    <div class="col-md-5 text-center text-white">
+        <h2 style="font-weight: bold; margin-bottom: 20px;">@Model.Player.FirstName @Model.Player.LastName</h2>
+        <p><strong>Date of Birth:</strong> @Model.Player.DateOfBirth.ToShortDateString() (@(DateTime.Now.Year - Model.Player.DateOfBirth.Year))</p>
+        <p><strong>Nationality:</strong> @Model.Player.Nationality</p>
+        <p><strong>Position:</strong> @Model.Player.Position</p>
+        <p><strong>Team:</strong> @Model.Player.Team.Name</p>
+        <p><strong>League:</strong> @Model.Player.Team.League.Name</p>
+        <p><strong>Valoration:</strong> @Model.Player.Valoration</p>
+    </div>
+</div>
+
+<h2 class="mb-4 text-center" style="color: white; font-weight: bold; margin-top: 10px;">Statistics</h2>
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead style="background-color: #108CC6; color: #fff;">
+            <tr>
+                <th class="text-center" style="width: auto;">Matches</th>
+
+                <th class="text-center" style="width: auto;">Minutes</th>
+                <th class="text-center" style="width: auto;">Avg Minutes</th>
+                @if (Model.Player.Position == Position.GK)
+                {
+                    <th class="text-center" style="width: auto;">Goals Received</th>
+                }
+                else
+                {
+                    <th class="text-center" style="width: auto;">Goals</th>
+                }
+
+                @if (Model.Player.Position == Position.GK)
+                {
+                    <th class="text-center" style="width: auto;">Avg Goals Received</th>
+                }
+                else
+                {
+                    <th class="text-center" style="width: auto;">Avg Goals</th>
+                }
+
+                @if (Model.Player.Position == Position.GK)
+                {
+                    <th class="text-center" style="width: auto;">Clean Sheet</th>
+                }
+                else
+                {
+                    <th class="text-center" style="width: auto;">Assists</th>
+                }
+                <th class="text-center" style="width: auto;">Yellow Cards</th>
+                <th class="text-center" style="width: auto;">Red Cards</th>
+                @if (Model.Player.Position == Position.GK)
+                {
+                    <th class="text-center" style="width: auto;">Shots Received</th>
+                }
+                else
+                {
+                    <th class="text-center" style="width: auto;">Average Speed</th>
+                }
+
+                @if (Model.Player.Position == Position.GK)
+                {
+                    <th class="text-center" style="width: auto;">Passes</th>
+                }
+                else
+                {
+                    <th class="text-center" style="width: auto;">Total KM</th>
+                }
+            </tr>
+        </thead>
+        <tbody style="background-color: white;">
+            <tr>
+                    <td class="text-center">@Model.Matches</td>
+                    <td class="text-center">@Model.Minutes</td>
+                    <td class="text-center">
+                        @{
+                            double minutesPerMatch = Model.Minutes / (double)Model.Matches;
+                            if (!double.IsNaN(minutesPerMatch))
+                            {
+                                <text>@minutesPerMatch.ToString("0.00")</text>
+                            }
+                        }
+                    </td>
+                    <td class="text-center">@Model.Goals</td>
+                    <td class="text-center">
+                        @{
+                            double goalsPerMatch = Model.Goals / (double)Model.Matches;
+                            if (!double.IsNaN(goalsPerMatch))
+                            {
+                                <text>@goalsPerMatch.ToString("0.00")</text>
+                            }
+                        }
+                    </td>
+                    <td class="text-center">@Model.Assists</td>
+                    <td class="text-center">@Model.YellowCards</td>
+                    <td class="text-center">@Model.RedCards</td>
+                    @if (Model.Player.Position == Position.GK)
+                    {
+                        <td class="text-center">@Model.AverageSpeed</td>
+                    }
+                    else
+                    {
+                        <td class="text-center">@Model.AverageSpeed.ToString("0.00") Km/h</td>
+                    }
+
+                    @if (Model.Player.Position == Position.GK)
+                    {
+                        <td class="text-center">@Model.Km</td>
+                    }
+                    else
+                    {
+                        <td class="text-center">@Model.Km.ToString("0.00") Km</td>
+                    }
+                    
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="d-flex justify-content-center mt-2">
+    <a asp-action="Index" class="btn btn-primary btn-lg me-4">Return</a>
+</div>

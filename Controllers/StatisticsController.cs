@@ -31,18 +31,56 @@ namespace AuthSystem.Controllers
         }
 
         // GET: Statistics
-        public IActionResult Index()
+        public IActionResult Index(string teamName, string pos, string val)
         {
             var statistics = _context.Statistics.Include(s => s.Player).ThenInclude(p => p.Team).ToList();
+            
+            if (!string.IsNullOrEmpty(teamName))
+            {
+                teamName = teamName.ToLower();
+                statistics = statistics.Where(p => p.Team.Name.ToLower().Contains(teamName)).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(pos))
+            {
+                if (Enum.TryParse(typeof(Position), pos, ignoreCase: true, out object enumValue))
+                {
+                    statistics = statistics.Where(p => p.Player.Position == (Position)enumValue).ToList();
+                }
+            }
+
+            if (!string.IsNullOrEmpty(val))
+            {
+                if(val == "gt90")
+                {
+                    statistics = statistics.Where(p => p.Player.Valoration >= 90).ToList();
+                } else if (val == "80-89")
+                {
+                    statistics = statistics.Where(p => p.Player.Valoration >= 80 && p.Player.Valoration < 90).ToList();
+                }
+                else if (val == "lt80")
+                {
+                    statistics = statistics.Where(p => p.Player.Valoration < 80).ToList();
+                }
+            }
+
             return View(statistics);
         }
 
-        public async Task<IActionResult> Details (int? id)
+        public IActionResult Details(int id)
         {
-            var existingStatistic = await _context.Statistics
-                .Include(s => s.Player)
-                .FirstOrDefaultAsync(s => s.Id == id);
-            return View();
+            var estadisticas = _context.Statistics
+            .Include(s => s.Player)
+            .Include(s => s.Player.Team)
+                .ThenInclude(t => t.League)
+            .FirstOrDefault(s => s.Id == id);
+
+            if (estadisticas == null)
+            {
+                return NotFound();
+            }
+
+            return View(estadisticas);
         }
 
         [Authorize(Roles = "Admin")]
@@ -71,7 +109,22 @@ namespace AuthSystem.Controllers
                 existingStatistic.Assists += statistic.Assists;
                 existingStatistic.YellowCards += statistic.YellowCards;
                 existingStatistic.RedCards += statistic.RedCards;
-                existingStatistic.Km += statistic.Km;
+
+                if (existingStatistic.Player.Position == Position.GK)
+                {
+                    existingStatistic.Km += statistic.Km;
+                }
+                else
+                {
+                    if (existingStatistic.Km == 0)
+                    {
+                        existingStatistic.Km += statistic.Km;
+                    }
+                    else
+                    {
+                        existingStatistic.Km = (existingStatistic.Km + statistic.Km) / 2;
+                    }
+                }
 
                 if (existingStatistic.Player.Position == Position.GK)
                 {
@@ -225,7 +278,22 @@ namespace AuthSystem.Controllers
                     existingStatistic.Assists += updatedStatistic.Assists;
                     existingStatistic.YellowCards += updatedStatistic.YellowCards;
                     existingStatistic.RedCards += updatedStatistic.RedCards;
-                    existingStatistic.Km += updatedStatistic.Km;
+
+                    if (existingStatistic.Player.Position == Position.GK)
+                    {
+                        existingStatistic.Km += updatedStatistic.Km;
+                    }
+                    else
+                    {
+                        if (existingStatistic.Km == 0)
+                        {
+                            existingStatistic.Km += updatedStatistic.Km;
+                        }
+                        else
+                        {
+                            existingStatistic.Km = (existingStatistic.Km + updatedStatistic.Km) / 2;
+                        }
+                    }
 
                     if (existingStatistic.Player.Position == Position.GK)
                     {

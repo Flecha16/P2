@@ -8,6 +8,28 @@
 <title>@ViewData["Title"] - Sports Analytics</title>
 
 <h1 class="mb-4 text-center" style="color: white; font-weight: bold"> @ViewData["Title"]</h1>
+
+<form method="get" action="@Url.Action("Index", "Statistics")" class="mb-4">
+    <div class="input-group">
+        <input type="text" name="teamName" class="form-control me-4" placeholder="Search by team">
+        <select name="pos" class="form-select me-4">
+            <option value="">Select Position</option>
+            @foreach (var enumValue in Enum.GetValues(typeof(Position)))
+            {
+                var enumName = Enum.GetName(typeof(Position), enumValue);
+                <option value="@enumName">@enumName</option>
+            }
+        </select>
+        <select name="val" class="form-select me-4">
+            <option value="">Select a valoration range</option>
+            <option value="gt90">Mayor a 90</option>
+            <option value="80-89">De 80 - 89</option>
+            <option value="lt80">Menor a 80</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
+
 @if (User.IsInRole("Admin"))
 {
     <div class="table-responsive">
@@ -39,7 +61,7 @@
                         <td class="text-center">@Html.DisplayFor(modelItem => item.Assists)</td>
                         <td class="text-center">@Html.DisplayFor(modelItem => item.Player.Position)</td>
                         <td class="text-center">@Html.DisplayFor(modelItem => item.Player.Valoration)</td>
-                        <td class="text-center"><a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-success">More Info</a></td>
+                        <td class="text-center"><a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-success">More Info</a></td>
                         <td class="text-center"><a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Edit</a></td>
                         <td class="text-center"><a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a></td>
                     </tr>
@@ -82,7 +104,7 @@ else
                         <td class="text-center">@Html.DisplayFor(modelItem => item.Assists)</td>
                         <td class="text-center">@Html.DisplayFor(modelItem => item.Player.Position)</td>
                         <td class="text-center">@Html.DisplayFor(modelItem => item.Player.Valoration)</td>
-                        <!--<td class="text-center"><a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-success">More Info</a></td>-->
+                        <td class="text-center"><a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-success">More Info</a></td>
                     </tr>
                 }
             </tbody>
