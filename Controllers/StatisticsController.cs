@@ -110,25 +110,76 @@ namespace AuthSystem.Controllers
 
         public IActionResult Team()
         {
-            var positionsToCompare = new List<Position[]>()
-            {
-                new Position[] { Position.CF, Position.ST, Position.RW, Position.LW },
-                new Position[] { Position.CM, Position.RM, Position.LM, Position.CAM, Position.CDM },
-                new Position[] { Position.CB, Position.SW, Position.LB, Position.RB },
-                new Position[] { Position.GK }
-            };
-
             var bestTeam = new List<Player>();
 
-            foreach (var positions in positionsToCompare)
+            // Obtener el mejor LW
+            var bestLW = _context.Players.Where(p => p.Position == Position.LW).OrderByDescending(p => p.Valoration).FirstOrDefault();
+            if (bestLW != null)
             {
-                var players = _context.Players.Where(p => positions.Contains(p.Position)).ToList();
+                bestTeam.Add(bestLW);
+            }
 
-                if (players.Count > 0)
-                {
-                    var bestPlayers = players.OrderByDescending(p => p.Valoration).Take(2);
-                    bestTeam.AddRange(bestPlayers);
-                }
+            // Obtener el mejor RW
+            var bestRW = _context.Players.Where(p => p.Position == Position.RW).OrderByDescending(p => p.Valoration).FirstOrDefault();
+            if (bestRW != null)
+            {
+                bestTeam.Add(bestRW);
+            }
+
+            // Obtener el mejor entre CF y ST
+            var bestCF_ST = _context.Players.Where(p => p.Position == Position.CF || p.Position == Position.ST).OrderByDescending(p => p.Valoration).FirstOrDefault();
+            if (bestCF_ST != null)
+            {
+                bestTeam.Add(bestCF_ST);
+            }
+
+            // Obtener el mejor RM
+            var bestRM = _context.Players.Where(p => p.Position == Position.RM).OrderByDescending(p => p.Valoration).FirstOrDefault();
+            if (bestRM != null)
+            {
+                bestTeam.Add(bestRM);
+            }
+
+            // Obtener el mejor LM
+            var bestLM = _context.Players.Where(p => p.Position == Position.LM).OrderByDescending(p => p.Valoration).FirstOrDefault();
+            if (bestLM != null)
+            {
+                bestTeam.Add(bestLM);
+            }
+
+            // Obtener el mejor entre CM, CDM y CAM
+            var bestCM_CDM_CAM = _context.Players.Where(p => p.Position == Position.CM || p.Position == Position.CDM || p.Position == Position.CAM).OrderByDescending(p => p.Valoration).FirstOrDefault();
+            if (bestCM_CDM_CAM != null)
+            {
+                bestTeam.Add(bestCM_CDM_CAM);
+            }
+
+            // Obtener el mejor LB
+            var bestLB = _context.Players.Where(p => p.Position == Position.LB).OrderByDescending(p => p.Valoration).FirstOrDefault();
+            if (bestLB != null)
+            {
+                bestTeam.Add(bestLB);
+            }
+
+            // Obtener el mejor RB
+            var bestRB = _context.Players.Where(p => p.Position == Position.RB).OrderByDescending(p => p.Valoration).FirstOrDefault();
+            if (bestRB != null)
+            {
+                bestTeam.Add(bestRB);
+            }
+
+            // Obtener los dos mejores entre CB y SW
+            var bestCB_SW = _context.Players.Where(p => p.Position == Position.CB || p.Position == Position.SW).OrderByDescending(p => p.Valoration).Take(2);
+            if (bestCB_SW.Any())
+            {
+                bestTeam.AddRange(bestCB_SW);
+            }
+
+            // Obtener el mejor GK
+            var bestGK = _context.Players.Where(p => p.Position == Position.GK).OrderByDescending(p => p.Valoration).FirstOrDefault();
+            if (bestGK != null)
+            {
+                bestTeam.Add(bestGK);
             }
 
             return View(bestTeam);

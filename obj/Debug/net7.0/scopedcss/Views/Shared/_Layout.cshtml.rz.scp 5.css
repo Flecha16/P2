@@ -1,0 +1,57 @@
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-mwi9yv2bb2] {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+a[b-mwi9yv2bb2] {
+    color: #0077cc;
+}
+
+.btn-primary[b-mwi9yv2bb2] {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-mwi9yv2bb2], .nav-pills .show > .nav-link[b-mwi9yv2bb2] {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.border-top[b-mwi9yv2bb2] {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom[b-mwi9yv2bb2] {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-mwi9yv2bb2] {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-mwi9yv2bb2] {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+.footer[b-mwi9yv2bb2] {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+}
+
+body[b-mwi9yv2bb2] {
+    margin-bottom: 60px;
+    font-family: Roboto,sans-serif;
+    background-image: url('/Images/74282.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -48,8 +48,13 @@ namespace AuthSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                
+                if (user.FirstName == null && user.LastName == null)
+                {
+                    user.FirstName = "";
+                    user.LastName = "";
+                }
                 await _userStore.SetUserNameAsync(user, user.Email, CancellationToken.None);
+                
                 // Crea el usuario
                 var result = await _userManager.CreateAsync(user, user.PasswordHash);
                 if (result.Succeeded)
