@@ -1,45 +1,42 @@
 ﻿<Properties StartupConfiguration="{3EC7B0BC-6469-4E33-86F8-03A2DDAFC6C1}|https">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.AuthSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Statistics/Details.cshtml">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Statistics/Team.cshtml">
     <Files>
-      <File FileName="Migrations/Areas/Identity/Data/AuthDbContext.cs" />
-      <File FileName="Models/Statistic.cs" />
-      <File FileName="Views/Statistics/Edit.cshtml" />
-      <File FileName="Views/Statistics/Create.cshtml" />
-      <File FileName="Controllers/TeamsController.cs" />
-      <File FileName="Controllers/StatisticsController.cs" Line="78" Column="1" />
-      <File FileName="Views/Statistics/Details.cshtml" Line="61" Column="18" />
-      <File FileName="Views/Statistics/Index.cshtml" />
+      <File FileName="Controllers/StatisticsController.cs" Line="130" Column="50" />
+      <File FileName="appsettings.json" />
+      <File FileName="Views/Statistics/BestPlayer.cshtml" Line="63" Column="86" />
+      <File FileName="Program.cs" Line="1" Column="1" />
+      <File FileName="Views/Statistics/Details.cshtml" Line="1" Column="1" />
+      <File FileName="Models/Player.cs" Line="126" Column="12" />
+      <File FileName="Views/Statistics/Index.cshtml" Line="56" Column="86" />
+      <File FileName="Views/Statistics/Edit.cshtml" Line="1" Column="1" />
+      <File FileName="wwwroot/js/site.js" Line="7" Column="4" />
+      <File FileName="Models/Position.cs" Line="23" Column="1" />
+      <File FileName="Views/Statistics/Formation.cshtml" Line="28" Column="1" />
+      <File FileName="Views/Statistics/Team.cshtml" Line="12" Column="1" />
+      <File FileName="Models/Statistic.cs" Line="1" Column="1" />
+      <File FileName="Views/AppRoles/Index.cshtml" Line="14" Column="59" />
+      <File FileName="Views/Team/Index.cshtml" Line="1" Column="1" />
+      <File FileName="Views/Player/Index.cshtml" Line="81" Column="88" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="AuthSystem" expanded="True">
-            <Node name="AuthSystem" expanded="True">
+          <Node name="AuthSystem">
+            <Node name="AuthSystem">
               <Node name="Controllers" expanded="True" />
-              <Node name="Migrations" expanded="True">
-                <Node name="Areas" expanded="True">
-                  <Node name="Identity" expanded="True">
-                    <Node name="Data" expanded="True" />
-                  </Node>
-                </Node>
-              </Node>
               <Node name="Models" expanded="True" />
-              <Node name="Views" expanded="True">
-                <Node name="Home" expanded="True" />
+              <Node name="Views">
+                <Node name="AppRoles" expanded="True" />
                 <Node name="Player" expanded="True" />
-                <Node name="Shared" expanded="True" />
-                <Node name="Statistics" expanded="True">
-                  <Node name="Details.cshtml" selected="True" />
+                <Node name="Statistics">
+                  <Node name="Team.cshtml" selected="True" />
                 </Node>
                 <Node name="Team" expanded="True" />
               </Node>
-              <Node name="wwwroot" expanded="True">
+              <Node name="wwwroot">
                 <Node name="css" expanded="True" />
                 <Node name="Images" expanded="True" />
               </Node>
@@ -50,5 +47,8 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.AuthSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
 </Properties>

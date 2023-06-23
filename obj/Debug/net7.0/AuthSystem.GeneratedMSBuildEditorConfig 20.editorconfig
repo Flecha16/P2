@@ -128,8 +128,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/Views/Statistics/Best.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3RhdGlzdGljcy9CZXN0LmNzaHRtbA==
+[/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/Views/Statistics/BestPlayer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3RhdGlzdGljcy9CZXN0UGxheWVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/Views/Statistics/Create.cshtml]
@@ -148,16 +148,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3RhdGlzdGljcy9FZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/Views/Statistics/Formation.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3RhdGlzdGljcy9Gb3JtYXRpb24uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/Views/Statistics/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3RhdGlzdGljcy9JbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/Views/Statistics/Team.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3RhdGlzdGljcy9UZWFtLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/Views/Team/Create.cshtml]

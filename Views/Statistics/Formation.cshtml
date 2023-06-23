@@ -1,0 +1,27 @@
+﻿@model Formation
+<!-- Código HTML para mostrar la alineación 4-4-2 -->
+<div class="formation-442">
+    <div class="row">
+        <div class="col-4">Forward: @Model.Forward1.FirstName</div>
+        <div class="col-4">Winger: @Model.Winger1.FirstName</div>
+        <div class="col-4">Central Midfield: @Model.CentralMidfield1.FirstName</div>
+    </div>
+    <div class="row">
+        <div class="col-4">Forward: @Model.Forward2.FirstName</div>
+        <div class="col-4">Winger: @Model.Winger2.FirstName</div>
+        <div class="col-4">Defensive Midfield: @Model.DefensiveMidfield1.FirstName</div>
+    </div>
+    <div class="row">
+        <div class="col-4">Fullback: @Model.FullBack1.FirstName</div>
+        <div class="col-4">Center Back: @Model.CenterBack1.FirstName</div>
+        <div class="col-4">Defensive Midfield: @Model.DefensiveMidfield2.FirstName</div>
+    </div>
+    <div class="row">
+        <div class="col-4">Fullback: @Model.FullBack2.FirstName</div>
+        <div class="col-4">Center Back: @Model.CenterBack2.FirstName</div>
+        <div class="col-4">Central Midfield: @Model.CentralMidfield2.FirstName</div>
+    </div>
+    <div class="row">
+        <div class="col-12">Goalkeeper: @Model.Goalkeeper.FirstName</div>
+    </div>
+</div>

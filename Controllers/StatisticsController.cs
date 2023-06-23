@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,6 +12,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.CodeAnalysis.Elfie.Diagnostics;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.VisualBasic;
 using Player = AuthSystem.Models.Player;
 using Position = AuthSystem.Models.Position;
 
@@ -19,6 +22,7 @@ namespace AuthSystem.Controllers
     public class StatisticsController : Controller
     {
         private readonly AuthDbContext _context;
+
         double weightGoals;
         double weightAssists;
         double weightMatchesPlayed;
@@ -34,7 +38,7 @@ namespace AuthSystem.Controllers
         public IActionResult Index(string teamName, string pos, string val)
         {
             var statistics = _context.Statistics.Include(s => s.Player).ThenInclude(p => p.Team).ToList();
-            
+
             if (!string.IsNullOrEmpty(teamName))
             {
                 teamName = teamName.ToLower();
@@ -51,10 +55,11 @@ namespace AuthSystem.Controllers
 
             if (!string.IsNullOrEmpty(val))
             {
-                if(val == "gt90")
+                if (val == "gt90")
                 {
                     statistics = statistics.Where(p => p.Player.Valoration >= 90).ToList();
-                } else if (val == "80-89")
+                }
+                else if (val == "80-89")
                 {
                     statistics = statistics.Where(p => p.Player.Valoration >= 80 && p.Player.Valoration < 90).ToList();
                 }
@@ -65,6 +70,68 @@ namespace AuthSystem.Controllers
             }
 
             return View(statistics);
+        }
+
+        public IActionResult Best(string[] positions)
+        {
+            var statistics = _context.Statistics.Include(s => s.Player).ThenInclude(p => p.Team).ToList();
+
+            if (positions != null && positions.Any())
+            {
+                var validPositions = new List<Position>();
+                foreach (var pos in positions)
+                {
+                    if (Enum.TryParse(typeof(Position), pos, ignoreCase: true, out object enumValue))
+                    {
+                        validPositions.Add((Position)enumValue);
+                    }
+                }
+
+                statistics = statistics.Where(p => validPositions.Contains(p.Player.Position)).ToList();
+
+                var bestPlayers = new List<Statistic>();
+
+                foreach (var position in validPositions)
+                {
+                    var highestRating = statistics.Where(p => p.Player.Position == position).Max(p => p.Player.Valoration);
+                    var bestPlayer = statistics.FirstOrDefault(p => p.Player.Position == position && p.Player.Valoration == highestRating);
+
+                    if (bestPlayer != null)
+                    {
+                        bestPlayers.Add(bestPlayer);
+                    }
+                }
+
+                statistics = bestPlayers;
+            }
+
+            return View(statistics);
+        }
+
+        public IActionResult Team()
+        {
+            var positionsToCompare = new List<Position[]>()
+            {
+                new Position[] { Position.CF, Position.ST, Position.RW, Position.LW },
+                new Position[] { Position.CM, Position.RM, Position.LM, Position.CAM, Position.CDM },
+                new Position[] { Position.CB, Position.SW, Position.LB, Position.RB },
+                new Position[] { Position.GK }
+            };
+
+            var bestTeam = new List<Player>();
+
+            foreach (var positions in positionsToCompare)
+            {
+                var players = _context.Players.Where(p => positions.Contains(p.Position)).ToList();
+
+                if (players.Count > 0)
+                {
+                    var bestPlayers = players.OrderByDescending(p => p.Valoration).Take(2);
+                    bestTeam.AddRange(bestPlayers);
+                }
+            }
+
+            return View(bestTeam);
         }
 
         public IActionResult Details(int id)
@@ -175,9 +242,9 @@ namespace AuthSystem.Controllers
                 }
                 else if (statistic.Player.Position == Position.GK)
                 {
-                    weightGoals = 0.1;
-                    weightAssists = 0.1;
-                    weightMatchesPlayed = 0.6;
+                    weightGoals = 0.3;
+                    weightAssists = 0.4;
+                    weightMatchesPlayed = 0.1;
                     weightTotalKm = 0.1;
                     weightAverageSpeed = 0.1;
 
@@ -269,7 +336,6 @@ namespace AuthSystem.Controllers
                 .Include(s => s.Player)
                 .FirstOrDefaultAsync(s => s.Id == id);
 
-
                 if (existingStatistic != null)
                 {
                     existingStatistic.Matches += updatedStatistic.Matches;
@@ -341,11 +407,11 @@ namespace AuthSystem.Controllers
                     }
                     else if (existingStatistic.Player.Position == Position.GK)
                     {
-                        weightGoals = 0.1;
-                        weightAssists = 0.1;
-                        weightMatchesPlayed = 0.6;
-                        weightTotalKm = 0.1;
-                        weightAverageSpeed = 0.1;
+                        weightGoals = 0.3;
+                    weightAssists = 0.4;
+                    weightMatchesPlayed = 0.1;
+                    weightTotalKm = 0.1;
+                    weightAverageSpeed = 0.1;
 
                     }
 
