@@ -20,6 +20,17 @@ namespace AuthSystem.Controllers
             _context = context;
         }
 
+        [Route("api/[controller]")]
+        [Produces("application/json")]
+        // GET: api/teams
+        [HttpGet]
+        public ActionResult<IEnumerable<Statistic>> Get()
+        {
+            var teams = _context.Teams.Include(t => t.League).ToList();
+
+            return Ok(teams);
+        }
+
         // GET: Team
         public IActionResult Index(string leagueName)
         {

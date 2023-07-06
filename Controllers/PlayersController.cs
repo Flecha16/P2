@@ -23,6 +23,20 @@ namespace AuthSystem.Controllers
             _context = context;
         }
 
+        [Route("api/[controller]")]
+        [Produces("application/json")]
+        // GET: api/Player
+        [HttpGet]
+        public ActionResult<IEnumerable<Player>> Get()
+        {
+            var players = _context.Players
+                .Include(p => p.League)
+                .Include(p => p.Team)
+                .ToList();
+
+            return Ok(players);
+        }
+
         // GET: Team
         public IActionResult Index(string leagueName, string teamName, string val, string nat, string pos)
         {

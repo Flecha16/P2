@@ -22,6 +22,17 @@ namespace AuthSystem.Controllers
             _context = context;
         }
 
+        [Route("api/[controller]")]
+        [Produces("application/json")]
+        // GET: api/League
+        [HttpGet]
+        public ActionResult<IEnumerable<League>> Get()
+        {
+            var leagues = _context.Leagues.ToList();
+
+            return Ok(leagues);
+        }
+
         public IActionResult Index()
         {
             var leagues = _context.Leagues.ToList();

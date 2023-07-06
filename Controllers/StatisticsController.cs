@@ -19,6 +19,7 @@ using Position = AuthSystem.Models.Position;
 
 namespace AuthSystem.Controllers
 {
+    
     public class StatisticsController : Controller
     {
         private readonly AuthDbContext _context;
@@ -34,10 +35,25 @@ namespace AuthSystem.Controllers
             _context = context;
         }
 
+        [Route("api/[controller]")]
+        [Produces("application/json")]
+        // GET: api/statistics
+        [HttpGet]
+        public ActionResult<IEnumerable<Statistic>> Get()
+        {
+            var statistics = _context.Statistics
+                .Include(s => s.Player)
+                .Include(s => s.Player.Team)
+                .Include(s => s.Player.League)
+                .ToList();
+
+            return Ok(statistics);
+        }
+
         // GET: Statistics
         public IActionResult Index(string teamName, string pos, string val)
         {
-            var statistics = _context.Statistics.Include(s => s.Player).ThenInclude(p => p.Team).ToList();
+            var statistics = _context.Statistics.Include(s => s.Player).ThenInclude(p => p.Team).ThenInclude(p => p.League).ToList();
 
             if (!string.IsNullOrEmpty(teamName))
             {
