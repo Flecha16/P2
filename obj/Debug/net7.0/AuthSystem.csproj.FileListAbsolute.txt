@@ -928,6 +928,7 @@ C:/Users/sealv/OneDrive/Escritorio/AuthSystem/bin/Debug/net7.0/Pomelo.EntityFram
 /Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/bin/Debug/net7.0/NuGet.ProjectModel.dll
 /Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/bin/Debug/net7.0/NuGet.Protocol.dll
 /Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/bin/Debug/net7.0/NuGet.Versioning.dll
+/Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/bin/Debug/net7.0/nunit.framework.dll
 /Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/bin/Debug/net7.0/Pomelo.EntityFrameworkCore.MySql.dll
 /Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/bin/Debug/net7.0/System.CodeDom.dll
 /Users/flecha/Documents/UDLA/SÉPTIMO SEMESTRE/INGENIERÍA WEB/AuthSystem/bin/Debug/net7.0/System.Composition.AttributedModel.dll

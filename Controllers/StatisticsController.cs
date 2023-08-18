@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AuthSystem.Data;
 using AuthSystem.Migrations;
 using AuthSystem.Models;
+using AuthSystem.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -19,10 +20,10 @@ using Position = AuthSystem.Models.Position;
 
 namespace AuthSystem.Controllers
 {
-    
     public class StatisticsController : Controller
     {
         private readonly AuthDbContext _context;
+        private readonly IStatisticsRepository _statisticsRepository;
 
         double weightGoals;
         double weightAssists;
@@ -30,30 +31,25 @@ namespace AuthSystem.Controllers
         double weightTotalKm;
         double weightAverageSpeed;
 
-        public StatisticsController(AuthDbContext context)
+        public StatisticsController(AuthDbContext context, IStatisticsRepository statisticsRepository)
         {
             _context = context;
+            _statisticsRepository = statisticsRepository;
         }
 
         [Route("api/[controller]")]
         [Produces("application/json")]
-        // GET: api/statistics
         [HttpGet]
         public ActionResult<IEnumerable<Statistic>> Get()
         {
-            var statistics = _context.Statistics
-                .Include(s => s.Player)
-                .Include(s => s.Player.Team)
-                .Include(s => s.Player.League)
-                .ToList();
-
+            var statistics = _statisticsRepository.GetAllStatistics();
             return Ok(statistics);
         }
 
         // GET: Statistics
         public IActionResult Index(string teamName, string pos, string val)
         {
-            var statistics = _context.Statistics.Include(s => s.Player).ThenInclude(p => p.Team).ThenInclude(p => p.League).ToList();
+            var statistics = _statisticsRepository.GetAllStatistics();
 
             if (!string.IsNullOrEmpty(teamName))
             {
@@ -90,7 +86,7 @@ namespace AuthSystem.Controllers
 
         public IActionResult Best(string[] positions)
         {
-            var statistics = _context.Statistics.Include(s => s.Player).ThenInclude(p => p.Team).ToList();
+            var statistics = _statisticsRepository.GetAllStatistics();
 
             if (positions != null && positions.Any())
             {
@@ -203,11 +199,7 @@ namespace AuthSystem.Controllers
 
         public IActionResult Details(int id)
         {
-            var estadisticas = _context.Statistics
-            .Include(s => s.Player)
-            .Include(s => s.Player.Team)
-                .ThenInclude(t => t.League)
-            .FirstOrDefault(s => s.Id == id);
+            var estadisticas = _statisticsRepository.GetStatisticById(id);
 
             if (estadisticas == null)
             {
@@ -221,8 +213,10 @@ namespace AuthSystem.Controllers
         // GET: Statistics/Create
         public IActionResult Create()
         {
-            ViewBag.Teams = new SelectList(_context.Teams, "Id", "Name");
-            ViewBag.Players = _context.Players.Select(p => new SelectListItem { Value = p.Id.ToString(), Text = p.FirstName + " " + p.LastName }).ToList();
+            ViewBag.Teams = new SelectList(_statisticsRepository.GetAllTeams(), "Id", "Name");
+            ViewBag.Players = _statisticsRepository.GetAllPlayers()
+                .Select(p => new SelectListItem { Value = p.Id.ToString(), Text = p.FirstName + " " + p.LastName })
+                .ToList();
             return View();
         }
 
@@ -230,10 +224,10 @@ namespace AuthSystem.Controllers
         public async Task<IActionResult> Create(Statistic statistic)
         {
             // Buscar la estadística existente del jugador
-            var existingStatistic = await _context.Statistics.FirstOrDefaultAsync(s => s.PlayerId == statistic.PlayerId);
-            var player = await _context.Players.FindAsync(statistic.PlayerId);
+            var existingStatistic = _statisticsRepository.GetStatisticByPlayerId(statistic.PlayerId);
+            var player = _statisticsRepository.GetPlayerById(statistic.PlayerId);
             statistic.TeamId = player.TeamId;
-            statistic.Player = player;
+            statistic.Player = (Player)player;
 
             if (existingStatistic != null)
             {
@@ -378,13 +372,14 @@ namespace AuthSystem.Controllers
                 return NotFound();
             }
 
-            var statistic = await _context.Statistics.FindAsync(id);
+            var statistic = _statisticsRepository.GetStatisticById(id.Value);
+
             if (statistic == null)
             {
                 return NotFound();
             }
 
-            ViewBag.Players = _context.Players.ToList();
+            ViewBag.Players = _statisticsRepository.GetAllPlayers().ToList();
             return View(statistic);
         }
 
@@ -399,9 +394,7 @@ namespace AuthSystem.Controllers
             }
             try
             {
-                var existingStatistic = await _context.Statistics
-                .Include(s => s.Player)
-                .FirstOrDefaultAsync(s => s.Id == id);
+                var existingStatistic = _statisticsRepository.GetStatisticById(id);
 
                 if (existingStatistic != null)
                 {
@@ -475,10 +468,10 @@ namespace AuthSystem.Controllers
                     else if (existingStatistic.Player.Position == Position.GK)
                     {
                         weightGoals = 0.3;
-                    weightAssists = 0.4;
-                    weightMatchesPlayed = 0.1;
-                    weightTotalKm = 0.1;
-                    weightAverageSpeed = 0.1;
+                        weightAssists = 0.4;
+                        weightMatchesPlayed = 0.1;
+                        weightTotalKm = 0.1;
+                        weightAverageSpeed = 0.1;
 
                     }
 
@@ -499,7 +492,7 @@ namespace AuthSystem.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!StatisticExists(updatedStatistic.Id))
+                if (!_statisticsRepository.StatisticExists(updatedStatistic.Id))
                 {
                     return NotFound();
                 }
@@ -520,7 +513,8 @@ namespace AuthSystem.Controllers
                 return NotFound();
             }
 
-            var statistic = await _context.Statistics.Include(s => s.Player).FirstOrDefaultAsync(m => m.Id == id);
+            var statistic = _statisticsRepository.GetStatisticById(id.Value);
+
             if (statistic == null)
             {
                 return NotFound();
@@ -534,17 +528,10 @@ namespace AuthSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var statistic = await _context.Statistics.FindAsync(id);
-            _context.Statistics.Remove(statistic);
-            await _context.SaveChangesAsync();
+            var statistic = _statisticsRepository.GetStatisticById(id);
+            _statisticsRepository.DeleteStatistic(id);
             return RedirectToAction(nameof(Index));
         }
-
-        private bool StatisticExists(int id)
-        {
-            return _context.Statistics.Any(e => e.Id == id);
-        }
-
 
     }
 

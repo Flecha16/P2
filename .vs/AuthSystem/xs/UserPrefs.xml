@@ -1,36 +1,22 @@
 ﻿<Properties StartupConfiguration="{3EC7B0BC-6469-4E33-86F8-03A2DDAFC6C1}|https">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.AuthSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/StatisticsController.cs">
     <Files>
-      <File FileName="Controllers/StatisticsController.cs" Line="118" Column="22" />
-      <File FileName="appsettings.json" />
-      <File FileName="Program.cs" />
-      <File FileName="Views/Statistics/Details.cshtml" />
-      <File FileName="Models/Player.cs" />
-      <File FileName="Views/Statistics/Index.cshtml" Line="120" Column="76" />
-      <File FileName="Views/Statistics/Edit.cshtml" />
-      <File FileName="wwwroot/js/site.js" Line="1" Column="1" />
-      <File FileName="Views/Statistics/Formation.cshtml" />
-      <File FileName="Views/Statistics/Team.cshtml" />
-      <File FileName="Models/Statistic.cs" Line="25" Column="18" />
-      <File FileName="Views/AppRoles/Index.cshtml" />
-      <File FileName="Views/Team/Index.cshtml" Line="91" Column="11" />
-      <File FileName="Views/Player/Index.cshtml" Line="132" Column="11" />
-      <File FileName="Controllers/AppRolesController.cs" />
-      <File FileName="Controllers/HomeController.cs" />
-      <File FileName="Controllers/LeagueController.cs" Line="25" Column="36" />
-      <File FileName="Controllers/PlayersController.cs" Line="27" Column="39" />
-      <File FileName="Views/Statistics/Best.cshtml" />
-      <File FileName="Controllers/UsersController.cs" Line="29" Column="10" />
-      <File FileName="Views/Shared/_LoginPartial.cshtml" />
-      <File FileName="Controllers/TeamsController.cs" Line="24" Column="39" />
-      <File FileName="Migrations/Areas/Identity/Data/ApplicationUser.cs" Line="1" Column="1" />
-      <File FileName="Migrations/Areas/Identity/Data/AuthDbContext.cs" Line="1" Column="1" />
-      <File FileName="Views/League/Index.cshtml" Line="69" Column="5" />
+      <File FileName="Controllers/StatisticsController.cs" Line="23" Column="51" />
+      <File FileName="Controllers/IStatisticsRepository.cs" Line="17" Column="38" />
+      <File FileName="Controllers/ApiController.cs" />
+      <File FileName="Program.cs" Line="17" Column="44" />
+      <File FileName="appsettings.Development.json" />
+      <File FileName=".babelrc" />
+      <File FileName="wwwroot/js/site.js" />
+      <File FileName="Controllers/TestController.cs" />
+      <File FileName="Controllers/IStatisticsPresenter.cs" Line="1" Column="1" />
+      <File FileName="Controllers/StatisticsRepositoriesFactory.cs" />
+      <File FileName="Controllers/IStatisticsRepositoryFactory.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -40,16 +26,6 @@
               <Node name="Controllers" expanded="True">
                 <Node name="StatisticsController.cs" selected="True" />
               </Node>
-              <Node name="Models" expanded="True" />
-              <Node name="Views">
-                <Node name="League" expanded="True" />
-                <Node name="Player" expanded="True" />
-                <Node name="Statistics" expanded="True" />
-              </Node>
-              <Node name="wwwroot" expanded="True">
-                <Node name="js" expanded="True" />
-              </Node>
-              <Node name="appsettings.json" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -57,5 +33,5 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.AuthSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
 </Properties>
