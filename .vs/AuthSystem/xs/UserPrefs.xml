@@ -1,37 +1,37 @@
 ﻿<Properties StartupConfiguration="{3EC7B0BC-6469-4E33-86F8-03A2DDAFC6C1}|https">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/StatisticsController.cs">
     <Files>
-      <File FileName="Controllers/StatisticsController.cs" Line="23" Column="51" />
-      <File FileName="Controllers/IStatisticsRepository.cs" Line="17" Column="38" />
+      <File FileName="Controllers/StatisticsController.cs" Line="28" Column="28" />
+      <File FileName="Controllers/IStatisticsRepository.cs" />
       <File FileName="Controllers/ApiController.cs" />
-      <File FileName="Program.cs" Line="17" Column="44" />
+      <File FileName="Program.cs" />
       <File FileName="appsettings.Development.json" />
       <File FileName=".babelrc" />
       <File FileName="wwwroot/js/site.js" />
       <File FileName="Controllers/TestController.cs" />
-      <File FileName="Controllers/IStatisticsPresenter.cs" Line="1" Column="1" />
-      <File FileName="Controllers/StatisticsRepositoriesFactory.cs" />
-      <File FileName="Controllers/IStatisticsRepositoryFactory.cs" Line="1" Column="1" />
+      <File FileName="Controllers/IStatisticsPresenter.cs" />
+      <File FileName="Controllers/StatisticsRepositoriesFactory.cs" Line="1" Column="1" />
+      <File FileName="Controllers/IStatisticsRepositoryFactory.cs" />
+      <File FileName="Controllers/StatisticsPresenters.cs" Line="46" Column="33" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="AuthSystem">
             <Node name="AuthSystem">
-              <Node name="Controllers" expanded="True">
-                <Node name="StatisticsController.cs" selected="True" />
-              </Node>
+              <Node name="Dependencies" selected="True" />
+              <Node name="Controllers" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.AuthSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
 </Properties>
